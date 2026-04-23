@@ -1,8 +1,9 @@
 package prog2.model;
 
 import javax.annotation.processing.Processor;
+import java.io.Serializable;
 
-public abstract class Usuari implements InUsuari {
+public abstract class Usuari implements InUsuari, Serializable {
     // Atributs
     private String email;
     private String nom;
