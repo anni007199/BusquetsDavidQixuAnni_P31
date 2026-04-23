@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.util.Iterator;
 
 public class LlistaExemplars extends Llista <Exemplar> implements Serializable {
-
     // Mètode "afegir"
     @Override
     public void afegir(Exemplar exemplar) throws BiblioException {
@@ -17,7 +16,7 @@ public class LlistaExemplars extends Llista <Exemplar> implements Serializable {
         while (iterator.hasNext()){
             // Amb condició 'if' per comprovar si n'hi ha algun id igual
             if (iterator.next().getId().equals(exemplar.getId())){
-                // si s'ha trobat, es llença una exxcepció
+                // si s'ha trobat, es llença una excepció
                 throw new BiblioException("Ja existeix un exemplar amb el mateix id");
             }
         }

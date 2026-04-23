@@ -1,4 +1,9 @@
 package prog2.model;
 
-public class LlistaPrestecs {
+import prog2.vista.BiblioException;
+
+import java.io.Serializable;
+
+public class LlistaPrestecs extends Llista <Exemplar> implements Serializable {
+
 }
