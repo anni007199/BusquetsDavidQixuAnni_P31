@@ -21,6 +21,7 @@ public class Llista<T> implements Serializable {
      */
     public int getSize() {
           // TO-BE-DONE
+        return llista.size();
     }
 
     /**
@@ -28,6 +29,7 @@ public class Llista<T> implements Serializable {
      */
     public void afegir(T t) throws BiblioException {
           // TO-BE-DONE
+        llista.add(t);
     }
 
     /**
@@ -35,6 +37,7 @@ public class Llista<T> implements Serializable {
      */
     public void esborrar(T t) {
           // TO-BE-DONE
+        llista.remove(t);
     }
 
     /**
@@ -42,6 +45,13 @@ public class Llista<T> implements Serializable {
      */
     public T getAt(int position) {
           // TO-BE-DONE
+        // primer s'ha de comprovar si està dins de la llista o no
+        if (position >= 0 && position < llista.size()){
+            // si està dins de la llista, usant ".get()", es retorna l'element
+            return llista.get(position);
+        }
+        // si està fora del rang, retorna 'null'
+        return null;
     }
 
     /**
@@ -49,6 +59,7 @@ public class Llista<T> implements Serializable {
      */
     public void clear() {
           // TO-BE-DONE
+        llista.clear();
     }
 
     /**
@@ -56,6 +67,11 @@ public class Llista<T> implements Serializable {
      */
     public boolean isEmpty() {
           // TO-BE-DONE
+        // condició 'if' per comprovar si la llista està buida o no
+        if(llista.size() == 0){
+            return true;
+        }
+        return false;
     }
 
     /**
