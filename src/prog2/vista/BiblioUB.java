@@ -8,6 +8,7 @@ package prog2.vista;
 import java.util.List;
 import java.util.Scanner;
 import prog2.adaptador.Adaptador;
+import java.util.ArrayList;
 
 /**
  *
@@ -146,6 +147,7 @@ public class BiblioUB {
     }
     
     private void menuGestioExemplars(Scanner sc) {
+
     }
     
     /**
