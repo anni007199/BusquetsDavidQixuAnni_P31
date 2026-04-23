@@ -91,7 +91,7 @@ public class Adaptador implements Serializable {
         return dades.getLlistaPrestecs().getSize();
     }
 
-    public void guardarDades(String camiDesti) throws BiblioException{
+    public void guardaDades(String camiDesti) throws BiblioException{
         try {
             // obrir fitxer per escriure
             java.io.FileOutputStream fitxer = new java.io.FileOutputStream(camiDesti);
