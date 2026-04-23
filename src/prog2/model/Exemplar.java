@@ -3,7 +3,6 @@ package prog2.model;
 import java.io.Serializable;
 
 public class Exemplar implements InExemplar, Serializable {
-
     // Atributs
     private String id;
     private String titol;
@@ -50,7 +49,7 @@ public class Exemplar implements InExemplar, Serializable {
     public boolean getDisponible(){
         return this.disponible;
     }
-
+    // Mètode 'toString'
     @Override
     public String toString(){
         return "Id="+getId()+", Titol="+getTitol()+", Autor="+getAutor()+", Admet Prestec Llarg"+getAdmetPrestecLlarg()+", Disponible"+getDisponible();
