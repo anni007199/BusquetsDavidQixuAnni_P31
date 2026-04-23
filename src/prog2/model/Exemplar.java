@@ -46,12 +46,12 @@ public class Exemplar implements InExemplar, Serializable {
     public boolean getAdmetPrestecLlarg(){
         return this.admetPrestecLlarg;
     }
-    public boolean getDisponible(){
+    public boolean isDisponible(){
         return this.disponible;
     }
     // Mètode 'toString'
     @Override
     public String toString(){
-        return "Id="+getId()+", Titol="+getTitol()+", Autor="+getAutor()+", Admet Prestec Llarg"+getAdmetPrestecLlarg()+", Disponible"+getDisponible();
+        return "Id="+getId()+", Titol="+getTitol()+", Autor="+getAutor()+", Admet Prestec Llarg"+getAdmetPrestecLlarg()+", Disponible"+isDisponible();
     }
 }
