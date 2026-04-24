@@ -7,6 +7,11 @@ public class Professor extends Usuari{
     }
 
     @Override
+    public String tipusUsuari(){
+        return "Professor";
+    }
+
+    @Override
     public int getMaxPrestecsNormals(){
         return 2;
     }

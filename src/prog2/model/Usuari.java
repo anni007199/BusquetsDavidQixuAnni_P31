@@ -53,15 +53,7 @@ public abstract class Usuari implements InUsuari, Serializable {
     }
 
     @Override
-    public String tipusUsuari(){
-        if(this instanceof Processor){
-            return "Professor";
-        }
-        if(this instanceof Estudiant) {
-            return "Estudiant";
-        }
-        return "Usuari";
-    }
+    public abstract String tipusUsuari();
 
     @Override
     public int getMaxPrestecsNormals(){

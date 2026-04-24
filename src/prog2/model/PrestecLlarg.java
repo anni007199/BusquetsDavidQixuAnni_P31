@@ -13,6 +13,10 @@ public class PrestecLlarg extends Prestec{
     }
 
     @Override
+    public String tipusPrestec(){
+        return "Llarg";
+    }
+    @Override
     public long duradaPrestec(){
         return DURADA_PRESTEC_LLARGS;
     }

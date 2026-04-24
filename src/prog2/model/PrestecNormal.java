@@ -13,6 +13,10 @@ public class PrestecNormal extends Prestec{
     }
 
     @Override
+    public String tipusPrestec(){
+        return "Normal";
+    }
+    @Override
     public long duradaPrestec(){
         return DURADA_PRESTEC_NORMAL;
     }

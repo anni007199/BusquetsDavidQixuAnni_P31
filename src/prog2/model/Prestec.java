@@ -54,15 +54,8 @@ public abstract class Prestec implements InPrestec, Serializable {
         return retornat;
     }
 
-    public String tipusPrestec(){
-        if(this instanceof PrestecLlarg){
-            return "PrestecLlarg";
-        }
-        if(this instanceof PrestecNormal) {
-            return "PrestecNormal";
-        }
-        return "Prestec";
-    }
+    @Override
+    public abstract String tipusPrestec();
 
     // Retornar prestec. Llança excepció si el prestec ja es vaig retornar
     public void retorna(){

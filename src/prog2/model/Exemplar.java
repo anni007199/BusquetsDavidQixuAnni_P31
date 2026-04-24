@@ -16,6 +16,8 @@ public class Exemplar implements InExemplar, Serializable {
         this.titol = titol;
         this.autor = autor;
         this.admetPrestecLlarg = admetPrestecLlarg;
+        // un exemplar nou, sempre és disponible
+        this.disponible = true;
     }
     // setters
     public void setId(String id){

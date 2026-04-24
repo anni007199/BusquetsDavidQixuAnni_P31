@@ -5,6 +5,11 @@ public class Estudiant extends Usuari {
     public Estudiant(String email, String nom, String adreca){
         super(email,nom,adreca);
     }
+
+    @Override
+    public String tipusUsuari(){
+        return "Estudiant";
+    }
     @Override
     public int getMaxPrestecsNormals(){
         return 2;
