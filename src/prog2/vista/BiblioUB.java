@@ -95,7 +95,7 @@ public class BiblioUB {
             menu.mostrarMenu();
             opcio = menu.getOpcio(sc);
 
-            // Fem les accions necessàries per a la opció triada
+            // Fem les accions necessàries per a l'opció triada
             switch(opcio) {
                 case MENU_PRINCIPAL_EXEMPLARS:
                     // Mostra el menú per a la gestió d'exemplars
@@ -147,7 +147,35 @@ public class BiblioUB {
     }
     
     private void menuGestioExemplars(Scanner sc) {
+        // crear menu amb opcions d'exemplars
+        Menu<OpcionsMenuGestioExemplars> menu = new Menu<>("Gestió Exemplars", OpcionsMenuGestioExemplars.values());
+        // posar les descripcions del menú
+        menu.setDescripcions(descMenuGestioExemplars);
 
+        OpcionsMenuGestioExemplars opcionsMenuGestioExemplars;
+        // Bucle 'do-while'
+        do{
+            // mostrar menu
+            menu.mostrarMenu();
+            // llegir opció triada
+            opcionsMenuGestioExemplars = menu.getOpcio(sc);
+
+            switch (opcionsMenuGestioExemplars){
+                case MENU_GESTIO_EXEMPLARS_ADD:
+                    // afegir exemplar
+                    afegirExemplar(sc);
+                    break;
+                case MENU_GESTIO_EXEMPLARS_VIEW:
+                    // mostrar llista d'exemplars
+                    showList("Llista d'exemplars",adaptador.getLlistaExemplars());
+                    break;
+                case MENU_GESTIO_EXEMPLARS_EXIT:
+                    // sortir del menú
+                    System.out.println("Sortint del menú gestió exemplars per anar al menú principal...");
+                    break;
+            }
+            // si no és "MENU_GESTIO_EXEMPLARS_EXIT" mai surt del bucle
+        } while(opcionsMenuGestioExemplars != OpcionsMenuGestioExemplars.MENU_GESTIO_EXEMPLARS_EXIT);
     }
     
     /**
@@ -156,9 +184,55 @@ public class BiblioUB {
      */
     
     private void afegirExemplar(Scanner sc){
+        System.out.println("Afegir un nou exemplar");
+        System.out.println("Introdueix el ID: ");
+        String id = sc.nextLine();
+        System.out.println("Introdueix el títol: ");
+        String titol = sc.nextLine();
+        System.out.println("Introdueix l'autor: ");
+        String autor = sc.nextLine();
+        System.out.println("Vols préstec llarg? (true/false): ");
+        // "Boolean.parseBoolean(text)" això serveix per convertir el text a boolean
+        boolean admetPrestecLlarg = Boolean.parseBoolean(sc.nextLine());
+        // try-catch per captura excepció
+        try{
+            adaptador.afegirExemplar(id,titol,autor,admetPrestecLlarg);
+            System.out.println("Exemplar s'ha afegit de manera correcte");
+        } catch (BiblioException error){
+            System.out.println("ERROR: "+error.getMessage());
+        }
     }
 
     private void menuGestioUsuaris(Scanner sc) {
+        // crear menu amb opcions d'usuaris
+        Menu<OpcionsMenuGestioClients> menu = new Menu<>("Gestió Clients", OpcionsMenuGestioClients.values());
+        // posar les descripcions del menú
+        menu.setDescripcions(descMenuGestioUsuaris);
+
+        OpcionsMenuGestioClients opcionsMenuGestioClients;
+        // Bucle 'do-while'
+        do{
+            // mostrar menu
+            menu.mostrarMenu();
+            // llegir opció triada
+            opcionsMenuGestioClients = menu.getOpcio(sc);
+
+            switch (opcionsMenuGestioClients){
+                case MENU_GESTIO_USUARIS_ADD:
+                    // afegir usuari
+                    afegirUsuari(sc);
+                    break;
+                case MENU_GESTIO_USUARIS_VIEW:
+                    // mostrar llista d'usuaris
+                    showList("Llista d'usuaris",adaptador.getLlistaUsuaris());
+                    break;
+                case MENU_GESTIO_USUARIS_EXIT:
+                    // sortir del menú
+                    System.out.println("Sortint del menú gestió exemplars per anar al menú principal...");
+                    break;
+            }
+            // si no és "MENU_GESTIO_USUARIS_EXIT" mai surt del bucle
+        } while(opcionsMenuGestioClients != OpcionsMenuGestioClients.MENU_GESTIO_USUARIS_EXIT);
     }
     
     /**
@@ -167,9 +241,61 @@ public class BiblioUB {
      */
     
     private void afegirUsuari(Scanner sc){
+        System.out.println("Afegir un nou usuari");
+        System.out.println("Introdueix l'email: ");
+        String email = sc.nextLine();
+        System.out.println("Introdueix el nom: ");
+        String nom = sc.nextLine();
+        System.out.println("Introdueix l'adreça: ");
+        String adreca = sc.nextLine();
+        System.out.println("Ets estudiant? (true/false): ");
+        // "Boolean.parseBoolean(text)" això serveix per convertir el text a boolean
+        boolean esEstudiant = Boolean.parseBoolean(sc.nextLine());
+        // try-catch per captura excepció
+        try{
+            adaptador.afegirUsuari(email,nom,adreca,esEstudiant);
+            System.out.println("Usuari s'ha afegit de manera correcte");
+        } catch (BiblioException error){
+            System.out.println("ERROR: "+error.getMessage());
+        }
     }
 
     private void menuGestioPrestecs(Scanner sc) {
+        // crear menu amb opcions dels préstecs
+        Menu<OpcionsMenuGestioPrestecs> menu = new Menu<>("Gestió Préstecs", OpcionsMenuGestioPrestecs.values());
+        // posar les descripcions del menú
+        menu.setDescripcions(descMenuGestioPrestecs);
+
+        OpcionsMenuGestioPrestecs opcionsMenuGestioPrestecs;
+        // Bucle 'do-while'
+        do{
+            // mostrar menu
+            menu.mostrarMenu();
+            // llegir opció triada
+            opcionsMenuGestioPrestecs = menu.getOpcio(sc);
+
+            switch (opcionsMenuGestioPrestecs){
+                case MENU_GESTIO_PRESTECS_ADD:
+                    // afegir préstec
+                    afegirPrestec(sc);
+                    break;
+                case MENU_GESTIO_PRESTECS_REMOVE:
+                    cancelarPrestec(sc);
+                    break;
+                case MENU_GESTIO_PRESTECS_VIEW:
+                    // mostrar llista d'exemplars
+                    showList("Llista de préstecs",adaptador.getLlistaPrestecs());
+                    break;
+                case MENU_GESTIO_PRESTECS_VIEW_URG:
+                    showList("Llista de préstecs no retornats",adaptador.getLlistaPrestecsNoRetornats());
+                    break;
+                case MENU_GESTIO_PRESTECS_EXIT:
+                    // sortir del menú
+                    System.out.println("Sortint del menú gestió exemplars per anar al menú principal...");
+                    break;
+            }
+            // si no és "MENU_GESTIO_EXEMPLARS_EXIT" mai surt del bucle
+        } while(opcionsMenuGestioPrestecs != OpcionsMenuGestioPrestecs.MENU_GESTIO_PRESTECS_EXIT);
     }
     
     /**
@@ -178,9 +304,55 @@ public class BiblioUB {
      */
     
     private void afegirPrestec(Scanner sc){
+        System.out.println("Afegir un préstec ");
+        // condició 'if' per comprovar si hi ha exemplars o no
+        if(adaptador.getNumExemplars() == 0){
+            System.out.println("ERROR: No s'ha trobat exemplars disponible per fer préstecs ");
+            return;
+        }
+        // condició 'if' per comprovar si hi ha usuaris
+        if(adaptador.getNumUsuaris() == 0){
+            System.out.println("ERROR: No s'ha trobat usuaris disponible per fer préstecs ");
+            return;
+        }
+        // mostrar llista d'exemplars
+        showList("Exemplars disponibles",adaptador.getLlistaExemplars());
+        System.out.println("Tria la posició de l'exemplar: ");
+        int exemplarPos = Integer.parseInt(sc.nextLine());
+        // mostrar llista d'usuaris
+        showList("Usuaris disponibles",adaptador.getLlistaUsuaris());
+        System.out.println("Tria la posició de l'usuari: ");
+        int usuariPos = Integer.parseInt(sc.nextLine());
+        // preguntar si l'usuari vol préstec llarg o no
+        System.out.println("És de préstec llarg o no? (true/false): ");
+        boolean esLlarg = Boolean.parseBoolean(sc.nextLine());
+
+        try{
+            adaptador.afegirPrestec(exemplarPos,usuariPos,esLlarg);
+            System.out.println("Préstec s'ha afegit de manera correcte");
+        } catch (BiblioException error){
+            System.out.println("ERROR: "+error.getMessage());
+        }
     }
 
     private void cancelarPrestec(Scanner sc){
+        System.out.println("Cancelar préstec");
+        // condició 'if' per comprovar si hi ha préstec o no
+        if(adaptador.getNumPrestecs()==0){
+            System.out.println("ERROR: No hi ha préstecs");
+            return;
+        }
+        //mostrar llista de préstecs
+        showList("Llista de préstecs",adaptador.getLlistaPrestecs());
+        System.out.print("Tria la posició del préstec a retornar");
+        int posicio = Integer.parseInt(sc.nextLine());
+
+        try{
+            adaptador.retornarPrestec(posicio);
+            System.out.println("Préstec s'ha retornat de manera correcte");
+        } catch (BiblioException error){
+            System.out.println("ERROR: "+error.getMessage());
+        }
     }
 
      /**
