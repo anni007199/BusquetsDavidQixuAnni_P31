@@ -79,37 +79,37 @@ public class Dades implements InDades{
         // Condició 'if' per comprovar si existeix o no
         // si no existeix, llença excepció
         if(exemplar == null){
-            throw new BiblioException("No s'ha trobat exemplar");
+            throw new BiblioException("No s'ha trobat exemplars.");
         }
         if(usuari == null){
-            throw new BiblioException("No s'ha trobat usuari");
+            throw new BiblioException("No s'ha trobat usuaris.");
         }
         // Condició 'if' per comprovar si l'exemplar està disponible o no
         // si no està disponible, llença excepció
         if(!exemplar.isDisponible()){
-            throw new BiblioException("L'exemplar no està disponible");
+            throw new BiblioException("L'exemplar no està disponible.");
         }
         // condició 'if' per comprovar si l'exemplar pot ser de préstec llarg o no
         // si no ho és, llença excepció
         if(esLlarg && !exemplar.getAdmetPrestecLlarg()){
-            throw new BiblioException("Aquest exemplar no permet préstecs de llarg termini");
+            throw new BiblioException("Aquest exemplar no permet préstecs de llarg termini.");
         }
         // condició 'i' per comprovar si l'usuari té préstecs endarrerits o no
         // si ho té, llença excepció
         for(int i = 0; i < llistaPrestecs.getSize(); i++){
             Prestec prestec = llistaPrestecs.getAt(i);
             if(prestec.getUsuari().equals(usuari) && !prestec.getRetornat() && prestec.prestecEndarrerit()){
-                throw new BiblioException("L'usuari té préstecs endarrerits");
+                throw new BiblioException("L'usuari té préstecs endarrerits, no pot obtenir préstecs nous.");
             }
         }
         // comprovar els límits de l'usuari
         if(esLlarg){
             if(usuari.getNumPrestecsLlargs() >= usuari.getMaxPrestecsLlargs()){
-                throw new BiblioException("ERROS: L'usuari ha superat el límit de préstecs llargs");
+                throw new BiblioException("ERROR: L'usuari ha passat el límit de préstecs llargs.");
             }
         } else {
             if (usuari.getNumPrestecsNormals() >= usuari.getMaxPrestecsNormals()){
-                throw new BiblioException("ERROR: L'usuari ha superat el límit de préstecs normals");
+                throw new BiblioException("ERROR: L'usuari ha passat el límit de préstecs normals.");
             }
         }
         // crear data actual
@@ -140,11 +140,11 @@ public class Dades implements InDades{
         Prestec prestec = llistaPrestecs.getAt(position);
         // condició 'if' per comprovar si existeix
         if(prestec == null){
-            throw new BiblioException("No s'ha trobat préstec");
+            throw new BiblioException("No s'ha trobat préstecs.");
         }
         // condició 'if' per comprovar si s'ha retornat o no
         if (prestec.getRetornat()){
-            throw new BiblioException("Ja s'ha retornat");
+            throw new BiblioException("Ja s'ha retornat.");
         }
         // retornar el préstec
         prestec.retorna();

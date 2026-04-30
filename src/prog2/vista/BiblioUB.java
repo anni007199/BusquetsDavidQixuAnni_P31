@@ -119,9 +119,9 @@ public class BiblioUB {
                         // Guardar les dades al fitxer triat
                         try {
                              this.adaptador.guardaDades(dstFile);
-                             System.err.println("Dades guardades");
+                             System.err.println("Les dades estan guardades de manera correcta.");
                         } catch (BiblioException ex) {
-                            System.out.println("Error guardant les dades: " + ex.getMessage());
+                            System.out.println("ERROR en guardar les dades: " + ex.getMessage());
                         }
                     }                   
                     break;
@@ -132,15 +132,15 @@ public class BiblioUB {
                         // Carregar les dades del fitxer triat
                         try {
                              this.adaptador.carregaDades(srcFile);
-                             System.err.println("Dades carregades");
+                             System.err.println("Les dades estan carregades de manera correcta.");
                         } catch(BiblioException ex) {
-                            System.out.println("Error carregant les dades." + ex.getMessage());
+                            System.out.println("ERROR en carregar les dades: " + ex.getMessage());
                         }
                     }     
                     break;
                 case MENU_PRINCIPAL_EXIT:
                     // Sortir      1
-                    System.err.println("Sortint de l'aplicació...");
+                    System.err.println("Sortir de l'aplicació.");
                     break;
             }
         } while(opcio != OpcionsMenuPrincipal.MENU_PRINCIPAL_EXIT);
@@ -171,7 +171,7 @@ public class BiblioUB {
                     break;
                 case MENU_GESTIO_EXEMPLARS_EXIT:
                     // sortir del menú
-                    System.out.println("Sortint del menú gestió exemplars per anar al menú principal...");
+                    System.out.println("Sortir del menú gestió exemplars per anar al menú principal.");
                     break;
             }
             // si no és "MENU_GESTIO_EXEMPLARS_EXIT" mai surt del bucle
@@ -197,7 +197,7 @@ public class BiblioUB {
         // try-catch per captura excepció
         try{
             adaptador.afegirExemplar(id,titol,autor,admetPrestecLlarg);
-            System.out.println("Exemplar s'ha afegit de manera correcte");
+            System.out.println("Exemplar s'ha afegit de manera correcta.");
         } catch (BiblioException error){
             System.out.println("ERROR: "+error.getMessage());
         }
@@ -228,7 +228,7 @@ public class BiblioUB {
                     break;
                 case MENU_GESTIO_USUARIS_EXIT:
                     // sortir del menú
-                    System.out.println("Sortint del menú gestió exemplars per anar al menú principal...");
+                    System.out.println("Sortir del menú gestió exemplars per anar al menú principal.");
                     break;
             }
             // si no és "MENU_GESTIO_USUARIS_EXIT" mai surt del bucle
@@ -254,7 +254,7 @@ public class BiblioUB {
         // try-catch per captura excepció
         try{
             adaptador.afegirUsuari(email,nom,adreca,esEstudiant);
-            System.out.println("Usuari s'ha afegit de manera correcte");
+            System.out.println("Usuari s'ha afegit de manera correcta.");
         } catch (BiblioException error){
             System.out.println("ERROR: "+error.getMessage());
         }
@@ -291,7 +291,7 @@ public class BiblioUB {
                     break;
                 case MENU_GESTIO_PRESTECS_EXIT:
                     // sortir del menú
-                    System.out.println("Sortint del menú gestió exemplars per anar al menú principal...");
+                    System.out.println("Sortir del menú gestió exemplars per anar al menú principal.");
                     break;
             }
             // si no és "MENU_GESTIO_EXEMPLARS_EXIT" mai surt del bucle
@@ -329,27 +329,27 @@ public class BiblioUB {
 
         try{
             adaptador.afegirPrestec(exemplarPos,usuariPos,esLlarg);
-            System.out.println("Préstec s'ha afegit de manera correcte");
+            System.out.println("Préstec s'ha afegit de manera correcta.");
         } catch (BiblioException error){
             System.out.println("ERROR: "+error.getMessage());
         }
     }
 
     private void cancelarPrestec(Scanner sc){
-        System.out.println("Cancelar préstec");
+        System.out.println("Cancel·lar préstec.");
         // condició 'if' per comprovar si hi ha préstec o no
         if(adaptador.getNumPrestecs()==0){
-            System.out.println("ERROR: No hi ha préstecs");
+            System.out.println("ERROR: No hi ha préstecs.");
             return;
         }
         //mostrar llista de préstecs
         showList("Llista de préstecs",adaptador.getLlistaPrestecs());
-        System.out.print("Tria la posició del préstec a retornar");
+        System.out.print("Tria la posició del préstec a retornar.");
         int posicio = Integer.parseInt(sc.nextLine());
 
         try{
             adaptador.retornarPrestec(posicio);
-            System.out.println("Préstec s'ha retornat de manera correcte");
+            System.out.println("Préstec s'ha retornat de manera correcta.");
         } catch (BiblioException error){
             System.out.println("ERROR: "+error.getMessage());
         }

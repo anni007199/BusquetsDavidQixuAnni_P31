@@ -17,7 +17,7 @@ public class LlistaExemplars extends Llista <Exemplar> implements Serializable {
             // Amb condició 'if' per comprovar si n'hi ha algun id igual
             if (iterator.next().getId().equals(exemplar.getId())){
                 // si s'ha trobat, es llença una excepció
-                throw new BiblioException("Ja existeix un exemplar amb el mateix id");
+                throw new BiblioException("Ja existeix un exemplar amb aquest id.");
             }
         }
         // si no s'ha trobat id iguals, s'afegeix a la llista

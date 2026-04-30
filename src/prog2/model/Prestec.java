@@ -62,7 +62,7 @@ public abstract class Prestec implements InPrestec, Serializable {
         // condició 'if' per comprovar si ja s'ha retornat o no
         // en cas contrari, retorna excepció
         if(retornat){
-            throw new RuntimeException("Ja està retornat");
+            throw new RuntimeException("Ja està retornat.");
         }
         // si no estava retornat, ara es marca com a retornat
         retornat = true;

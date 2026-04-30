@@ -17,7 +17,7 @@ public class LlistaUsuaris extends Llista <Usuari> implements Serializable {
             // Amb condició 'if' per comprovar si n'hi ha algun email igual
             if (iterator.next().getEmail().equals(usuari.getEmail())){
                 // si s'ha trobat, es llença una excepció
-                throw new BiblioException("Ja existeix un usuari amb el mateix email");
+                throw new BiblioException("Ja existeix un usuari amb aquest email.");
             }
         }
         llista.add(usuari);
