@@ -10,7 +10,11 @@ public class Exemplar implements InExemplar, Serializable {
     private boolean admetPrestecLlarg;
     private boolean disponible;
 
-    // Constructor
+
+    /**
+     *
+     *
+     */
     public Exemplar (String id, String titol, String autor, boolean admetPrestecLlarg){
         this.id = id;
         this.titol = titol;
@@ -20,37 +24,84 @@ public class Exemplar implements InExemplar, Serializable {
         this.disponible = true;
     }
     // setters
+    /**
+     *
+     *
+     */
     public void setId(String id){
         this.id = id;
     }
+    /**
+     *
+     *
+     */
     public void setTitol(String titol){
         this.titol = titol;
     }
+
+    /**
+     *
+     *
+     */
     public void setAutor(String autor){
         this.autor = autor;
     }
+
+    /**
+     *
+     *
+     */
     public void setAdmetPrestecLlarg(boolean admetPrestecLlarg){
         this.admetPrestecLlarg = admetPrestecLlarg;
     }
+    /**
+     *
+     *
+     */
     public void setDisponible(boolean disponible){
         this.disponible = disponible;
     }
     // getters
+    /**
+     *
+     *
+     */
     public String getId(){
         return this.id;
     }
+    /**
+     *
+     *
+     */
     public String getTitol(){
         return this.titol;
     }
+    /**
+     *
+     *
+     */
     public String getAutor(){
         return this.autor;
     }
+    /**
+     *
+     *
+     */
     public boolean getAdmetPrestecLlarg(){
         return this.admetPrestecLlarg;
     }
+    /**
+     *
+     *
+     */
     public boolean isDisponible(){
         return this.disponible;
     }
+
+    /**
+     *
+     *
+     */
     // Mètode 'toString'
     @Override
     public String toString(){

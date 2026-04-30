@@ -4,13 +4,26 @@ import prog2.vista.BiblioException;
 import java.util.ArrayList;
 import java.util.Date;
 
+
+/**
+ *
+ *
+ */
 public class Dades implements InDades{
     // Atributs
+    /**
+     *
+     *
+     */
     private LlistaExemplars llistaExemplars;
     private LlistaUsuaris llistaUsuaris;
     private LlistaPrestecs llistaPrestecs;
 
     // Constructor
+    /**
+     *
+     *
+     */
     public Dades(){
         llistaExemplars = new LlistaExemplars();
         llistaUsuaris = new LlistaUsuaris();
@@ -18,6 +31,10 @@ public class Dades implements InDades{
     }
 
     // getters
+    /**
+     *
+     *
+     */
     public LlistaExemplars getLlistaExemplars(){
         return llistaExemplars;
     }
@@ -28,6 +45,11 @@ public class Dades implements InDades{
         return llistaPrestecs;
     }
 
+
+    /**
+     *
+     *
+     */
     @Override
     //Afegeix exemplar. Llança excepció si l'id ja existeix
     public void afegirExemplar(String id, String titol, String autor, boolean admetPrestecLlarg) throws BiblioException{
@@ -37,12 +59,20 @@ public class Dades implements InDades{
         llistaExemplars.afegir(nouExemplar);
     }
 
+    /**
+     *
+     *
+     */
     @Override
     // Recuperar préstecs. Retorna un ArrayList amb tots els exemplars
     public ArrayList<Exemplar> recuperaExemplars(){
         return llistaExemplars.getArrayList();
     }
 
+    /**
+     *
+     *
+     */
     @Override
     // Afegeix usuari. Llança excepció si l'email ja existeix
     public void afegirUsuari(String email, String nom, String adreca, boolean esEstudiant) throws BiblioException{
@@ -60,17 +90,21 @@ public class Dades implements InDades{
         llistaUsuaris.afegir(nouUsuari);
     }
 
+    /**
+     *
+     *
+     */
     @Override
     // Recuperar usuaris. Retorna un ArrayList amb tots els usuaris
     public ArrayList<Usuari> recuperaUsuaris(){
         return llistaUsuaris.getArrayList();
     }
 
-    @Override
-    /* Afegeix préstec. Ha de fer diferents comprovacions que poden llançar excepcions.
+    /** Afegeix préstec. Ha de fer diferents comprovacions que poden llançar excepcions.
      * Quan s'afegeix el préstec, s'han de tenir en compte les posicions d'exemplar
      * i usuari dins dels seus ArrayLists
      */
+    @Override
     public void afegirPrestec(int exemplarPos, int usuariPos, boolean esLlarg) throws BiblioException{
         // Es pot usar el mètode ".getAt()" que retorna l'element de la posició donada
         // A partir de la posició donada, es pot obtenir l'exemplar i l'usuari.
@@ -132,7 +166,7 @@ public class Dades implements InDades{
     }
 
     @Override
-    /* Retornar préstec. Llança excepció si el prestec ja es vaig retornar.
+    /** Retornar préstec. Llança excepció si el prestec ja es vaig retornar.
      * El préstec s'identifica amb la seva posició dins de l'ArrayList
      */
     public void retornarPrestec(int position) throws BiblioException{
@@ -150,12 +184,20 @@ public class Dades implements InDades{
         prestec.retorna();
     }
 
+    /**
+     *
+     *
+     */
     @Override
     // Recuperar préstecs. Retorna un ArrayList amb tots els préstecs
     public ArrayList<Prestec> recuperaPrestecs(){
         return llistaPrestecs.getArrayList();
     }
 
+    /**
+     *
+     *
+     */
     @Override
     // Recuperar préstecs. Retorna un ArrayList amb els préstecs no retornats
     public ArrayList<Prestec> recuperaPrestecsNoRetornats(){

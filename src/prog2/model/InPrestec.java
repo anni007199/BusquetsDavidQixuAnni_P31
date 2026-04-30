@@ -26,7 +26,7 @@ public interface InPrestec {
     boolean getRetornat();
 
     /**
-     * Retornar prestec. Llança excepció si el prestec ja es vaig retornar
+     * Retornar prestec.
      */
     void retorna();
 

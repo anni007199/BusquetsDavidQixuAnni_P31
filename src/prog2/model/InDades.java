@@ -11,7 +11,7 @@ import prog2.vista.BiblioException;
 
 /**
  *
- * @author dortiz
+ *
  */
 public interface InDades {
 

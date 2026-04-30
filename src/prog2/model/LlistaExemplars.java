@@ -6,6 +6,11 @@ import java.io.Serializable;
 import java.util.Iterator;
 
 public class LlistaExemplars extends Llista <Exemplar> implements Serializable {
+
+    /**
+     *
+     *
+     */
     // Mètode "afegir"
     @Override
     public void afegir(Exemplar exemplar) throws BiblioException {
@@ -24,6 +29,10 @@ public class LlistaExemplars extends Llista <Exemplar> implements Serializable {
         llista.add(exemplar);
     }
 
+    /**
+     *
+     *
+     */
     public boolean contains(String id){
         // crear un iterator
         Iterator<Exemplar> iterator = llista.iterator();

@@ -8,14 +8,27 @@ public class PrestecLlarg extends Prestec{
     private static final long DURADA_PRESTEC_LLARGS = 140000L;
 
     // Constructor
+    /**
+     *
+     *
+     */
     public PrestecLlarg(Exemplar exemplar, Usuari usuari, Date dataCreacio){
         super(exemplar,usuari,dataCreacio);
     }
 
+    /**
+     *
+     *
+     */
     @Override
     public String tipusPrestec(){
         return "Llarg";
     }
+
+    /**
+     *
+     *
+     */
     @Override
     public long duradaPrestec(){
         return DURADA_PRESTEC_LLARGS;

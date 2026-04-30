@@ -8,14 +8,26 @@ public class PrestecNormal extends Prestec{
     private static final long DURADA_PRESTEC_NORMAL = 70000L;
 
     // Constructor
+    /**
+     *
+     *
+     */
     public PrestecNormal(Exemplar exemplar, Usuari usuari, Date dataCreacio){
         super(exemplar,usuari,dataCreacio);
     }
 
+    /**
+     *
+     *
+     */
     @Override
     public String tipusPrestec(){
         return "Normal";
     }
+    /**
+     *
+     *
+     */
     @Override
     public long duradaPrestec(){
         return DURADA_PRESTEC_NORMAL;

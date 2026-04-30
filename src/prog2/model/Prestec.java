@@ -22,6 +22,10 @@ public abstract class Prestec implements InPrestec, Serializable {
         this.dataLimitRetorn = new Date(dataCreacio.getTime()+duradaPrestec());
     }
     // setters
+    /**
+     *
+     *
+     */
     public void setExemplar(Exemplar exemplar){
         this.exemplar = exemplar;
     }
@@ -54,16 +58,19 @@ public abstract class Prestec implements InPrestec, Serializable {
         return retornat;
     }
 
+    /**
+     *
+     *
+     */
     @Override
     public abstract String tipusPrestec();
 
-    // Retornar prestec. Llança excepció si el prestec ja es vaig retornar
+    /**
+     *
+     *
+     */
+    // Retornar prestec.
     public void retorna(){
-        // condició 'if' per comprovar si ja s'ha retornat o no
-        // en cas contrari, retorna excepció
-        if(retornat){
-            throw new RuntimeException("Ja està retornat.");
-        }
         // si no estava retornat, ara es marca com a retornat
         retornat = true;
         // a l'exemplar ja està disponible, ja que s'ha retornat el llibre
@@ -76,10 +83,18 @@ public abstract class Prestec implements InPrestec, Serializable {
         }
     }
 
+    /**
+     *
+     *
+     */
     @Override
     //Retornar durada prestec. La durada del prestec depen del tipus de prestec
     public abstract long duradaPrestec();
 
+    /**
+     *
+     *
+     */
     @Override
     //Retornar true si el prestec està endarrerit per a la data actual
     public boolean prestecEndarrerit(){
@@ -94,6 +109,10 @@ public abstract class Prestec implements InPrestec, Serializable {
         return dataActual.after(dataLimitRetorn);
     }
 
+    /**
+     *
+     *
+     */
     @Override
     public String toString(){
         return "Tipus="+tipusPrestec()+", Exemplar="+getExemplar()+", Usuari="+getUsuari()+", Data de creacio="+getDataCreacio()+", Data límit retorn="+getDataLimitRetorn()+", Retornat="+getRetornat();

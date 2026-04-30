@@ -6,6 +6,10 @@ import java.io.Serializable;
 import java.util.Iterator;
 
 public class LlistaUsuaris extends Llista <Usuari> implements Serializable {
+    /**
+     *
+     *
+     */
     // Mètode "afegir"
     @Override
     public void afegir(Usuari usuari) throws BiblioException {
@@ -23,6 +27,10 @@ public class LlistaUsuaris extends Llista <Usuari> implements Serializable {
         llista.add(usuari);
     }
 
+    /**
+     *
+     *
+     */
     public boolean contains(String email){
         // crear un iterator
         Iterator<Usuari> iterator = llista.iterator();
