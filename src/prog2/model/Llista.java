@@ -24,7 +24,6 @@ public class Llista<T> implements Serializable {
      * Afegir element a la llista. Afegeix l'element t a la llista
      */
     public void afegir(T t) throws BiblioException {
-          // TO-BE-DONE
         llista.add(t);
     }
 
@@ -32,7 +31,6 @@ public class Llista<T> implements Serializable {
      * Esborrar element de la llista. Esborra l'element t a la llista
      */
     public void esborrar(T t) {
-          // TO-BE-DONE
         llista.remove(t);
     }
 
@@ -40,7 +38,6 @@ public class Llista<T> implements Serializable {
      * Retornar element de la llista a la posició position
      */
     public T getAt(int position) {
-          // TO-BE-DONE
         // primer s'ha de comprovar si està dins de la llista o no
         if (position >= 0 && position < llista.size()){
             // si està dins de la llista, usant ".get()", es retorna l'element

@@ -12,11 +12,13 @@ import java.util.ArrayList;
 
 /**
  *
- * @author dortiz
+ *
  */
 public class BiblioUB {
-    
-    // Declarem les constants del menu principal
+
+    /**
+     * Declara les constants del menu principal
+     */
     static private enum OpcionsMenuPrincipal {
         MENU_PRINCIPAL_EXEMPLARS,
         MENU_PRINCIPAL_USUARIS,
@@ -24,8 +26,10 @@ public class BiblioUB {
         MENU_PRINCIPAL_SAVE,
         MENU_PRINCIPAL_LOAD,
         MENU_PRINCIPAL_EXIT};
-    
-    // Declarem descripcions personalitzades per a les opcions del menú principal
+
+    /**
+     * Declara descripcions personalitzades per a les opcions del menú principal
+     */
     static private String[] descMenuPrincipal={"Gestió Exemplars",
                                                "Gestió Usuaris",
                                                "Gestió Prestecs",
@@ -38,8 +42,10 @@ public class BiblioUB {
         MENU_GESTIO_EXEMPLARS_VIEW,
         MENU_GESTIO_EXEMPLARS_EXIT
     };
-    
-    // Declarem descripcions personalitzades per a les opcions del menú principal
+
+    /**
+     * Declara descripcions personalitzades per a les opcions del menú principal
+     */
     static private String[] descMenuGestioExemplars ={"Afegir Exemplar",
                                                       "Visualitzar Exemplars",
                                                       "Sortir"};
@@ -49,8 +55,10 @@ public class BiblioUB {
         MENU_GESTIO_USUARIS_VIEW,
         MENU_GESTIO_USUARIS_EXIT
     };
-    
-    // Declarem descripcions personalitzades per a les opcions del menú principal
+
+    /**
+     * Declara descripcions personalitzades per a les opcions del menú principal
+     */
     static private String[] descMenuGestioUsuaris ={"Afegir Usuari",
                                                     "Visualitzar Usuaris",
                                                     "Sortir"};
@@ -62,8 +70,10 @@ public class BiblioUB {
         MENU_GESTIO_PRESTECS_VIEW_URG,
         MENU_GESTIO_PRESTECS_EXIT
     };
-    
-    // Declarem descripcions personalitzades per a les opcions del menú principal
+
+    /**
+     * Declara descripcions personalitzades per a les opcions del menú principal
+     */
     static private String[] descMenuGestioPrestecs ={"Afegir Prestec",
                                                      "Retornar Prestec",
                                                      "Visualitzar Prestecs",

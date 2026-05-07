@@ -12,18 +12,14 @@ import java.util.Date;
  */
 public class Dades implements InDades{
     // Atributs
-    /**
-     *
-     *
-     */
     private LlistaExemplars llistaExemplars;
     private LlistaUsuaris llistaUsuaris;
     private LlistaPrestecs llistaPrestecs;
 
     // Constructor
     /**
-     *
-     *
+     * Constructor per a un nou objecte Dades.
+     * Crea tres llistes; llistaExemplars, llistaUsuaris, llistaPrestecs
      */
     public Dades(){
         llistaExemplars = new LlistaExemplars();
@@ -33,19 +29,28 @@ public class Dades implements InDades{
 
     // getters
     /**
-     *
-     *
+     * Retorna la llista d'Exemplars
+     * @return llistaExemplars
      */
     public LlistaExemplars getLlistaExemplars(){
         return llistaExemplars;
     }
+
+    /**
+     * Retorna la llista d'Usuaris
+     * @return llistaUsuaris
+     */
     public LlistaUsuaris getLlistaUsuaris(){
         return llistaUsuaris;
     }
+
+    /**
+     * Retorna la llista d'Prestecs
+     * @return llistaPrestecs
+     */
     public LlistaPrestecs getLlistaPrestecs(){
         return llistaPrestecs;
     }
-
 
     /**
      *

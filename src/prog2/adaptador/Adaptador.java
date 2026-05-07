@@ -79,14 +79,26 @@ public class Adaptador implements Serializable {
         return llista;
     }
 
+    /**
+     * Retorna la quantitat d'exemplars de la biblioteca
+     * @return int
+     */
     public int getNumExemplars() {
         return dades.getLlistaExemplars().getSize();
     }
 
+    /**
+     * Retorna la quantitat d'usuaris de la biblioteca
+     * @return int
+     */
     public int getNumUsuaris(){
         return dades.getLlistaUsuaris().getSize();
     }
 
+    /**
+     * Retorna la quantitat de prestecs de la biblioteca
+     * @return int
+     */
     public int getNumPrestecs(){
         return dades.getLlistaPrestecs().getSize();
     }
