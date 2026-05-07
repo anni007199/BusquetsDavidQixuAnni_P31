@@ -92,4 +92,4 @@ public interface InUsuari {
     @Override
     String toString();
 };
-}
+
