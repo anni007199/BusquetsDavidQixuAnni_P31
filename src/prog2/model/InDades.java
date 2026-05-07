@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package prog2.model;
 
 import java.util.ArrayList;
@@ -10,28 +5,32 @@ import java.util.ArrayList;
 import prog2.vista.BiblioException;
 
 /**
- *
- *
+ * Interfície que defineix el sistema de gestió de dades de la biblioteca.
+ * Actua com a capa de control per gestionar les col·leccions de dades.
  */
 public interface InDades {
 
     /**
-     * Afegeix exemplar. Llança excepció si l'id ja existeix
+     * Registra un nou exemplar al catàleg de la biblioteca.
+     * @throws BiblioException Si ja existeix un exemplar amb el mateix identificador.
      */
     public void afegirExemplar(String id, String titol, String autor, boolean admetPrestecLlarg) throws BiblioException;
 
     /**
-     * Recuperar préstecs. Retorna un ArrayList amb tots els exemplars
+     * Recupera la llista completa de tots els exemplars registrats al sistema.
+     * * @return ArrayList d'objectes Exemplar.
      */
     public ArrayList<Exemplar> recuperaExemplars();
 
     /**
-     * Afegeix usuari. Llança excepció si l'email ja existeix
+     * Registra un nou usuari al sistema, ja sigui estudiant o professor.
+     * @throws BiblioException Si ja existeix un usuari registrat amb aquest correu electrònic.
      */
     public void afegirUsuari(String email, String nom, String adreca, boolean esEstudiant) throws BiblioException;
 
     /**
-     * Recuperar usuaris. Retorna un ArrayList amb tots els usuaris
+     * Recupera la llista completa de tots els usuaris registrats al sistema.
+     * * @return ArrayList d'objectes Usuari.
      */
     public ArrayList<Usuari> recuperaUsuaris();
 

@@ -5,13 +5,18 @@ import prog2.vista.BiblioException;
 import java.io.Serializable;
 import java.util.Iterator;
 
+/**
+ * Especialització de la classe Llista per a objectes de tipus Exemplar.
+ * Aquesta classe assegura que no hi hagi duplicats en el catàleg basant-se
+ * en l'identificador únic de cada exemplar.
+ */
 public class LlistaExemplars extends Llista <Exemplar> implements Serializable {
 
     /**
-     *
-     *
+     * {@inheritDoc}
+     * Abans d'afegir l'exemplar, recorre la llista per verificar que l'ID no estigui ja registrat.
+     * @throws BiblioException Si es detecta que l'identificador ja existeix a la llista.
      */
-    // Mètode "afegir"
     @Override
     public void afegir(Exemplar exemplar) throws BiblioException {
         // L'enunciat diu que no es podran afegir dos exemplars amb el mateix identificador.
@@ -30,8 +35,9 @@ public class LlistaExemplars extends Llista <Exemplar> implements Serializable {
     }
 
     /**
-     *
-     *
+     * Comprova si existeix algun exemplar a la llista amb l'identificador especificat.
+     * @param id String amb l'identificador a cercar.
+     * @return boolean cert si l'ID s'ha trobat, fals en cas contrari.
      */
     public boolean contains(String id){
         // crear un iterator

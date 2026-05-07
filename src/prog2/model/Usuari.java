@@ -84,26 +84,43 @@ public abstract class Usuari implements InUsuari, Serializable {
     public String getNom(){
         return this.nom;
     }
+
+    /**
+     * Retorna l'adreça de l'usuari.
+     * * @return String amb l'adreça de l'usuari.
+     */
     public String getAdreca(){
         return this.adreca;
     }
+
+    /**
+     * Retorna el nombre total de préstecs normals que té l'usuari.
+     * * @return int que representa la quantitat de préstecs normals.
+     */
     public int getNumPrestecsNormals(){
         return this.numPrestecsNormals;
     }
+
+    /**
+     * Retorna el nombre total de préstecs llargs que té l'usuari.
+     * * @return int que representa la quantitat de préstecs llargs.
+     */
     public int getNumPrestecsLlargs(){
         return this.numPrestecsLlargs;
     }
 
     /**
-     *
-     *
+     * Retorna una cadena de caràcters que identifica la categoria o rol de l'usuari.
+     * Mètode abstracte que s'ha d'implementar a les subclasses.
+     * * @return String amb el tipus d'usuari.
      */
     @Override
     public abstract String tipusUsuari();
 
     /**
-     *
-     *
+     * Retorna el límit màxim de préstecs normals que pot realitzar l'usuari.
+     * En aquesta implementació per defecte retorna 0.
+     * * @return int que representa el màxim de préstecs normals.
      */
     @Override
     public int getMaxPrestecsNormals(){
@@ -111,8 +128,9 @@ public abstract class Usuari implements InUsuari, Serializable {
     }
 
     /**
-     *
-     *
+     * Retorna el límit màxim de préstecs llargs que pot realitzar l'usuari.
+     * En aquesta implementació per defecte retorna 0.
+     * * @return int que representa el màxim de préstecs llargs.
      */
     @Override
     public int getMaxPrestecsLlargs(){
@@ -120,8 +138,9 @@ public abstract class Usuari implements InUsuari, Serializable {
     }
 
     /**
-     *
-     *
+     * Retorna una representació en format String de l'objecte Usuari,
+     * incloent les dades de contacte i l'estat dels seus préstecs.
+     * * @return String amb la informació detallada de l'usuari.
      */
     @Override
     public String toString(){

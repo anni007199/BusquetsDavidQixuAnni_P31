@@ -1,22 +1,22 @@
 package prog2.model;
 
 /**
- *
- *
+ * La classe Estudiant representa un tipus d'usuari específic dins del sistema.
+ * Estén la classe Usuari i defineix els límits de préstecs propis per a estudiants.
  */
 public class Estudiant extends Usuari {
     // Constructor
     /**
-     * Constructor per un estudiant
-     * Fa servir super per referir a usuari
+     * Constructor per a un nou objecte Estudiant.
+     * Fa servir el constructor de la superclasse Usuari per inicialitzar les dades bàsiques.
      */
     public Estudiant(String email, String nom, String adreca){
         super(email,nom,adreca);
     }
 
     /**
-     * retorna el tipus d'usuari, que és estudiant
-     * @return string
+     * Retorna el tipus d'usuari, que en aquest cas és "Estudiant".
+     * * @return String "Estudiant".
      */
     @Override
     public String tipusUsuari(){

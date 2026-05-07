@@ -4,6 +4,12 @@ import prog2.vista.BiblioException;
 
 import java.util.ArrayList;
 
+/**
+ * Interfície genèrica que defineix les operacions bàsiques per a una llista d'objectes.
+ * Permet gestionar col·leccions d'elements de qualsevol tipus T (Exemplar, Usuari, Prestec),
+ * proporcionant mètodes per a l'accés, modificació i consulta de la llista.
+ * @param <T> El tipus d'elements que contindrà la llista.
+ */
 public interface InLlista<T> {
     /**
      * Retornar nombre d'elements continguts a la llista

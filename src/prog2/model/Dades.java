@@ -6,8 +6,9 @@ import java.util.Date;
 
 
 /**
- *
- *
+ * Classe que implementa la gestió de dades de la biblioteca.
+ * Conté les llistes d'exemplars, usuaris i préstecs, i controla la
+ * lògica de negoci i les restriccions del sistema.
  */
 public class Dades implements InDades{
     // Atributs
