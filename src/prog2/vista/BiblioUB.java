@@ -217,7 +217,7 @@ public class BiblioUB {
         String titol = sc.nextLine();
         System.out.println("Introdueix l'autor: ");
         String autor = sc.nextLine();
-        System.out.println("Vols préstec llarg? (true/false): ");
+        System.out.println("Admet préstec llarg? (true/false): ");
         // "Boolean.parseBoolean(text)" això serveix per convertir el text a boolean
         boolean admetPrestecLlarg = Boolean.parseBoolean(sc.nextLine());
         // try-catch per captura excepció
