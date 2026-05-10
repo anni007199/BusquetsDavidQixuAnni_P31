@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package prog2.vista;
 
 import java.util.List;
@@ -11,8 +7,9 @@ import prog2.adaptador.Adaptador;
 import java.util.ArrayList;
 
 /**
- *
- *
+ * Classe principal de la interfície d'usuari de l'aplicació BiblioUB.
+ * Gestiona els menús textuals, la interacció amb l'usuari i les crides
+ * a l'adaptador per processar les operacions de la biblioteca.
  */
 public class BiblioUB {
 
@@ -37,6 +34,9 @@ public class BiblioUB {
                                                "Recuperar Dades",
                                                "Sortir"};
 
+    /**
+     * Enumeració per a les opcions del submenú de gestió d'exemplars.
+     */
     static private enum OpcionsMenuGestioExemplars {
         MENU_GESTIO_EXEMPLARS_ADD,
         MENU_GESTIO_EXEMPLARS_VIEW,
@@ -44,12 +44,15 @@ public class BiblioUB {
     };
 
     /**
-     * Declara descripcions personalitzades per a les opcions del menú principal
+     * Declara descripcions personalitzades per a les opcions del submenú de gestió d'exemplars
      */
     static private String[] descMenuGestioExemplars ={"Afegir Exemplar",
                                                       "Visualitzar Exemplars",
                                                       "Sortir"};
 
+    /**
+     * Enumeració per a les opcions del submenú de gestió de clients.
+     */
     static private enum OpcionsMenuGestioClients {
         MENU_GESTIO_USUARIS_ADD,
         MENU_GESTIO_USUARIS_VIEW,
@@ -57,12 +60,15 @@ public class BiblioUB {
     };
 
     /**
-     * Declara descripcions personalitzades per a les opcions del menú principal
+     * Declara descripcions personalitzades per a les opcions del submenú de gestio d'usuaris
      */
     static private String[] descMenuGestioUsuaris ={"Afegir Usuari",
                                                     "Visualitzar Usuaris",
                                                     "Sortir"};
 
+    /**
+     * Enumeració per a les opcions del submenú de gestió de prestecs.
+     */
     static private enum OpcionsMenuGestioPrestecs {
         MENU_GESTIO_PRESTECS_ADD,
         MENU_GESTIO_PRESTECS_REMOVE,
@@ -72,7 +78,7 @@ public class BiblioUB {
     };
 
     /**
-     * Declara descripcions personalitzades per a les opcions del menú principal
+     * Declara descripcions personalitzades per a les opcions del submenú de gestio de prestecs
      */
     static private String[] descMenuGestioPrestecs ={"Afegir Prestec",
                                                      "Retornar Prestec",
@@ -83,12 +89,19 @@ public class BiblioUB {
     
     /** Adaptador de l'aplicació */
     private Adaptador adaptador;
-    
-    /* Constructor*/
+
+    /**
+     * Constructor de la classe BiblioUB.
+     * Inicialitza l'adaptador que actuarà com a mediador amb les dades.
+     */
     public BiblioUB() {
         adaptador = new Adaptador();
     }
-     
+
+    /**
+     * Mètode principal que arrenca el bucle de control del menú principal.
+     * Gestiona les redireccions als submenús
+     */
     public void gestioBiblioUB() {
         // Creem un objecte per llegir des del teclat
         Scanner sc = new Scanner(System.in);
@@ -155,7 +168,11 @@ public class BiblioUB {
             }
         } while(opcio != OpcionsMenuPrincipal.MENU_PRINCIPAL_EXIT);
     }
-    
+
+    /**
+     * Gestiona el submenú de gestió d'exemplars.
+     * @param sc Scanner per a la lectura del teclat.
+     */
     private void menuGestioExemplars(Scanner sc) {
         // crear menu amb opcions d'exemplars
         Menu<OpcionsMenuGestioExemplars> menu = new Menu<>("Gestió Exemplars", OpcionsMenuGestioExemplars.values());
@@ -189,10 +206,9 @@ public class BiblioUB {
     }
     
     /**
-     * Afegir un nou article
-     * @param sc
+     * Demana les dades per teclat per registrar un nou exemplar.
+     * @param sc Scanner per a la lectura del teclat.
      */
-    
     private void afegirExemplar(Scanner sc){
         System.out.println("Afegir un nou exemplar");
         System.out.println("Introdueix el ID: ");
@@ -213,6 +229,10 @@ public class BiblioUB {
         }
     }
 
+    /**
+     * Gestiona el submenú de gestió d'usuaris.
+     * @param sc Scanner per a la lectura del teclat.
+     */
     private void menuGestioUsuaris(Scanner sc) {
         // crear menu amb opcions d'usuaris
         Menu<OpcionsMenuGestioClients> menu = new Menu<>("Gestió Clients", OpcionsMenuGestioClients.values());
@@ -244,12 +264,11 @@ public class BiblioUB {
             // si no és "MENU_GESTIO_USUARIS_EXIT" mai surt del bucle
         } while(opcionsMenuGestioClients != OpcionsMenuGestioClients.MENU_GESTIO_USUARIS_EXIT);
     }
-    
+
     /**
-     * Afegir un nou usuari
-     * @param sc
+     * Demana les dades per teclat per registrar un nou usuari.
+     * @param sc Scanner per a la lectura del teclat.
      */
-    
     private void afegirUsuari(Scanner sc){
         System.out.println("Afegir un nou usuari");
         System.out.println("Introdueix l'email: ");
@@ -270,6 +289,10 @@ public class BiblioUB {
         }
     }
 
+    /**
+     * Gestiona el submenú per a les operacions amb préstecs.
+     * @param sc Scanner per a la lectura del teclat.
+     */
     private void menuGestioPrestecs(Scanner sc) {
         // crear menu amb opcions dels préstecs
         Menu<OpcionsMenuGestioPrestecs> menu = new Menu<>("Gestió Préstecs", OpcionsMenuGestioPrestecs.values());
@@ -307,12 +330,11 @@ public class BiblioUB {
             // si no és "MENU_GESTIO_EXEMPLARS_EXIT" mai surt del bucle
         } while(opcionsMenuGestioPrestecs != OpcionsMenuGestioPrestecs.MENU_GESTIO_PRESTECS_EXIT);
     }
-    
+
     /**
-     * Afegir un nou prestec
-     * @param sc
+     * Demana els índexs per pantalla per crear un préstec.
+     * @param sc Scanner per a la lectura del teclat.
      */
-    
     private void afegirPrestec(Scanner sc){
         System.out.println("Afegir un préstec ");
         // condició 'if' per comprovar si hi ha exemplars o no
@@ -345,6 +367,10 @@ public class BiblioUB {
         }
     }
 
+    /**
+     * Demana l'índex del préstec que es desitja cancelar.
+     * @param sc Scanner per a la lectura del teclat.
+     */
     private void cancelarPrestec(Scanner sc){
         System.out.println("Cancel·lar préstec.");
         // condició 'if' per comprovar si hi ha préstec o no

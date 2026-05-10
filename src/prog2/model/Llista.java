@@ -5,15 +5,26 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import prog2.vista.BiblioException;
 
+/**
+ * Classe genèrica que implementa una llista d'elements de tipus T.
+ * Proporciona les operacions bàsiques per gestionar llistes d'objectes
+ * (com Exemplars, Usuaris o Préstecs)
+ * @param <T> El tipus d'elements que contindrà la llista.
+ */
 public class Llista<T> implements Serializable {
    protected ArrayList<T> llista;
 
-   public Llista() {
+   /**
+    * Constructor de la classe Llista.
+    * Inicialitza l'ArrayList intern on es guardaran els objectes.
+    */
+    public Llista() {
        llista = new ArrayList<>();
     }
 
     /**
-     * Retornar nombre d'elements continguts a la llista
+     * Retorna el nombre total d'elements continguts actualment a la llista.
+     * @return int que representa la mida de la llista.
      */
     public int getSize() {
           // TO-BE-DONE
@@ -21,14 +32,17 @@ public class Llista<T> implements Serializable {
     }
 
     /**
-     * Afegir element a la llista. Afegeix l'element t a la llista
+     * Afegeix un nou element a la llista.
+     * @param t L'objecte de tipus T que es vol inserir.
+     * @throws BiblioException Si es produeix algun error durant l'addició.
      */
     public void afegir(T t) throws BiblioException {
         llista.add(t);
     }
 
     /**
-     * Esborrar element de la llista. Esborra l'element t a la llista
+     * Elimina un element específic de la llista si aquest hi és present.
+     * @param t L'objecte de tipus T que es vol esborrar.
      */
     public void esborrar(T t) {
         llista.remove(t);
@@ -56,10 +70,10 @@ public class Llista<T> implements Serializable {
     }
 
     /**
-     * Retornar true si la llista és buida
+     * Comprova si la llista no conté cap element.
+     * @return boolean cert si la llista és buida, fals en cas contrari.
      */
     public boolean isEmpty() {
-          // TO-BE-DONE
         // condició 'if' per comprovar si la llista està buida o no
         if(llista.size() == 0){
             return true;
@@ -68,7 +82,7 @@ public class Llista<T> implements Serializable {
     }
 
     /**
-     * Retornar l'ArrayList que es fa servir dins de la classe
+     * Retorna una còpia de l'ArrayList intern utilitzat per la classe.
      */
     public ArrayList<T> getArrayList() {
         ArrayList<T> arrlist = new ArrayList<>(llista);

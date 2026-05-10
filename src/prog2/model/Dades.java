@@ -19,7 +19,8 @@ public class Dades implements InDades{
     // Constructor
     /**
      * Constructor per a un nou objecte Dades.
-     * Crea tres llistes; llistaExemplars, llistaUsuaris, llistaPrestecs
+     * Inicialitza les tres llistes principals de l'aplicació: llistaExemplars,
+     * llistaUsuaris i llistaPrestecs
      */
     public Dades(){
         llistaExemplars = new LlistaExemplars();
@@ -53,8 +54,12 @@ public class Dades implements InDades{
     }
 
     /**
-     *
-     *
+     * Afegeix un nou exemplar a la llista de la biblioteca.
+     * @param id String amb l'identificador únic de l'exemplar.
+     * @param titol String amb el títol de l'obra.
+     * @param autor String amb l'autor de l'obra.
+     * @param admetPrestecLlarg boolean que indica si l'exemplar permet préstecs de llarga durada.
+     * @throws BiblioException Si l'identificador ja existeix a la llista.
      */
     @Override
     //Afegeix exemplar. Llança excepció si l'id ja existeix
@@ -66,8 +71,8 @@ public class Dades implements InDades{
     }
 
     /**
-     *
-     *
+     * Recupera tots els exemplars de la biblioteca.
+     * @return ArrayList d'Exemplar amb tots els elements de la llista.
      */
     @Override
     // Recuperar préstecs. Retorna un ArrayList amb tots els exemplars
@@ -76,8 +81,12 @@ public class Dades implements InDades{
     }
 
     /**
-     *
-     *
+     * Afegeix un usuari (Estudiant o Professor) a la llista.
+     * @param email String amb el correu electrònic (clau única).
+     * @param nom String amb el nom complet de l'usuari.
+     * @param adreca String amb l'adreça de residència.
+     * @param esEstudiant boolean cert si és Estudiant, fals si és Professor.
+     * @throws BiblioException Si l'email ja està registrat al sistema.
      */
     @Override
     // Afegeix usuari. Llança excepció si l'email ja existeix
@@ -97,8 +106,8 @@ public class Dades implements InDades{
     }
 
     /**
-     *
-     *
+     * Recupera tots els usuaris registrats.
+     * @return ArrayList d'Usuari amb tots els usuaris de la biblioteca.
      */
     @Override
     // Recuperar usuaris. Retorna un ArrayList amb tots els usuaris
@@ -106,9 +115,15 @@ public class Dades implements InDades{
         return llistaUsuaris.getArrayList();
     }
 
-    /** Afegeix préstec. Ha de fer diferents comprovacions que poden llançar excepcions.
-     * Quan s'afegeix el préstec, s'han de tenir en compte les posicions d'exemplar
-     * i usuari dins dels seus ArrayLists
+    /**
+     * Crea un nou préstec validant totes les restriccions del sistema.
+     * Comprova la disponibilitat de l'exemplar, que l'usuari no tingui deutes pendents
+     * i que no hagi superat els seus límits màxims segons el seu tipus.
+     * @param exemplarPos Posició de l'exemplar dins de l'ArrayList.
+     * @param usuariPos Posició de l'usuari dins de l'ArrayList.
+     * @param esLlarg boolean que indica si el préstec sol·licitat és de llarga durada.
+     * @throws BiblioException Si l'exemplar no està disponible, si l'usuari té endarreriments,
+     * o si s'ha superat el límit de préstecs permesos.
      */
     @Override
     public void afegirPrestec(int exemplarPos, int usuariPos, boolean esLlarg) throws BiblioException{
@@ -172,8 +187,11 @@ public class Dades implements InDades{
     }
 
     @Override
-    /** Retornar préstec. Llança excepció si el prestec ja es vaig retornar.
-     * El préstec s'identifica amb la seva posició dins de l'ArrayList
+    /**
+     * Processa la devolució d'un préstec.
+     * Marca el préstec com a retornat i torna a posar l'exemplar com a disponible.
+     * @param position Índex del préstec dins de la llista.
+     * @throws BiblioException Si el préstec no existeix o si ja havia estat retornat anteriorment.
      */
     public void retornarPrestec(int position) throws BiblioException{
         // A partir de la posició donada, obtenir préstec
@@ -191,8 +209,8 @@ public class Dades implements InDades{
     }
 
     /**
-     *
-     *
+     * Recupera l'historial complet de préstecs realitzats.
+     * @return ArrayList de Prestec amb tots els préstecs.
      */
     @Override
     // Recuperar préstecs. Retorna un ArrayList amb tots els préstecs
@@ -201,8 +219,8 @@ public class Dades implements InDades{
     }
 
     /**
-     *
-     *
+     * Recupera només aquells préstecs que encara no han estat retornats.
+     * @return ArrayList de Prestec amb els préstecs actius.
      */
     @Override
     // Recuperar préstecs. Retorna un ArrayList amb els préstecs no retornats
