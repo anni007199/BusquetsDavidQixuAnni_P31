@@ -90,7 +90,7 @@ public class Adaptador implements Serializable {
 
     /**
      * Fa el retorn d'un préstec existent.
-     * @param. position Índex del préstec a retornar.
+     * @param position Índex del préstec a retornar.
      * @throws BiblioException Si el préstec no es pot retornar.
      */
     public void retornarPrestec(int position) throws BiblioException{
