@@ -1,60 +1,69 @@
 package prog2.vista;
 
+import prog2.adaptador.Adaptador;
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FrmAfegirPrestec extends JDialog {
-    private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
+    private JPanel panelAfegirPrestecs;
+    private JComboBox<String> cmbUsuaris;
+    private JComboBox<String> cmbExemplars;
+    private JCheckBox chkEsLlarg;
+    private JButton btnConfirmar;
+    private JButton btnCancelar;
 
-    public FrmAfegirPrestec() {
-        setContentPane(contentPane);
-        setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+    private Adaptador adaptador;
 
-        buttonOK.addActionListener(new ActionListener() {
+    public FrmAfegirPrestec(Adaptador adaptador) {
+        this.adaptador = adaptador;
+        setContentPane(panelAfegirPrestecs);
+        setModal(true); // bloquea la ventana de atrás hasta que se cierre
+        setTitle("Afegir Nou Préstec");
+
+        carregarCombos(); // Llenar los ComboBox con los datos actuales del sistema usando el adaptador
+
+        btnConfirmar.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                int usuariPos = cmbUsuaris.getSelectedIndex();
+                int exemplarPos = cmbExemplars.getSelectedIndex();
+                boolean esLlarg = chkEsLlarg.isSelected();
+
+                if (usuariPos == -1 || exemplarPos == -1) { // -1 significa que está vacío
+                    JOptionPane.showMessageDialog(null, "Cal seleccionar un usuari i un exemplar.");
+                    return;
+                }
+
+                try {
+                    adaptador.afegirPrestec(exemplarPos, usuariPos, esLlarg);
+                    JOptionPane.showMessageDialog(null, "Préstec afegit correctament.");
+                    dispose(); // Cierra esta ventana emergente
+                } catch (BiblioException ex) {
+                    JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage(), "Error de validació", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        // Botón Cancelar, cierra la ventana sin hacer nada
+        btnCancelar.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                dispose();
             }
         });
-
-        // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
-
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
-        // add your code here
-        dispose();
-    }
+    private void carregarCombos() {
+        cmbUsuaris.removeAllItems();
+        cmbExemplars.removeAllItems();
 
-    private void onCancel() {
-        // add your code here if necessary
-        dispose();
-    }
-
-    public static void main(String[] args) {
-        FrmAfegirPrestec dialog = new FrmAfegirPrestec();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
+        // Añadimos las listas en formato String
+        for (String usuari : adaptador.getLlistaUsuaris()) {
+            cmbUsuaris.addItem(usuari);
+        }
+        for (String exemplar : adaptador.getLlistaExemplars()) {
+            cmbExemplars.addItem(exemplar);
+        }
     }
 }
