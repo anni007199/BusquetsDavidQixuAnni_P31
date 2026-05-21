@@ -1,47 +1,61 @@
 package prog2.vista;
 
 import prog2.adaptador.Adaptador;
-
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FrmAfegirUsuari extends JDialog {
     private JPanel contentPane;
-    private JCheckBox chkEstudiant;
-    private JComboBox cmbEmail;
-    private JComboBox cmbNom;
-    private JComboBox cmbAdreca;
-    private JButton btnConfirmar;
+    private JTextField txtEmail;
+    private JTextField txtNom;
+    private JTextField txtAdreca;
+    private JCheckBox chkEsEstudiant;
+    private JButton btnAcceptar;
     private JButton btnCancelar;
+    private Adaptador adaptador;
+
 
     public FrmAfegirUsuari(Adaptador adaptador) {
+        this.adaptador = adaptador;
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(btnConfirmar);
+        setTitle("Afegir Nou Usuari");
+        setLocationRelativeTo(null);
 
+        btnAcceptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String email = txtEmail.getText().trim();
+                String nom = txtNom.getText().trim();
+                String adreca = txtAdreca.getText().trim();
+                boolean esEstudiant = chkEsEstudiant.isSelected();
 
-        // Botón Cancelar, cierra la ventana sin hacer nada
+                if (email.isEmpty() || nom.isEmpty() || adreca.isEmpty()) {
+                    JOptionPane.showMessageDialog(FrmAfegirUsuari.this,
+                            "Tots els camps són obligatoris per registrar l'usuari.",
+                            "Camps incomplets", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                try {
+                    adaptador.afegirUsuari(email, nom, adreca, esEstudiant);
+                    JOptionPane.showMessageDialog(FrmAfegirUsuari.this, "Usuari registrat correctament.");
+                    dispose();
+
+                } catch (BiblioException ex) {
+                    JOptionPane.showMessageDialog(FrmAfegirUsuari.this,
+                            "ERROR: " + ex.getMessage(),
+                            "Error al duplicar usuari", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
-
-
-    }
-
-    private void carregarCombos() {
-        cmbEmail.removeAllItems();
-        cmbNom.removeAllItems();
-        cmbAdreca.removeAllItems();
-
-        // Añadimos las listas en formato String
-        for (String usuari : adaptador.getLlistaUsuaris()) {
-            cmbEm.addItem(usuari);
-        }
-        for (String exemplar : adaptador.getLlistaExemplars()) {
-            cmbExemplars.addItem(exemplar);
-        }
     }
 }

@@ -12,7 +12,7 @@ public class GestioPrestecs extends JDialog {
     private JList<String> visualitzarPrestecs;
     private JButton btnRetornarPrestec;
     private JCheckBox chkOnlyNoRetornats;
-    private JButton btnSortirGestioPrestecs;
+    private JButton btnSortir;
     private Adaptador adaptador;
 
     public GestioPrestecs(Adaptador adaptador) {
@@ -59,6 +59,15 @@ public class GestioPrestecs extends JDialog {
                 actualitzarLlista();
             }
         });
+
+        // BOTÓN: Tancar
+        btnSortir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
     }
 
     private void actualitzarLlista() {

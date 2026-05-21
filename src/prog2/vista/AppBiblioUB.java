@@ -4,27 +4,28 @@ import prog2.adaptador.Adaptador;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class AppBiblioUB extends JFrame {
 
     private JPanel panelAppBiblioUB;
-    private Adaptador adaptador;
     private JButton btnAnarGestioUsuaris;
     private JButton btnAnarGestioExemplars;
     private JButton btnAnarGestioPrestecs;
     private JButton btnGuardarDades;
-    private JButton recuperarDadesButton;
-    private JButton sortirButton;
+    private JButton btnRecuperarDades;
+    private JButton btnSortir;
+    private Adaptador adaptador;
 
-    public void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            AppBiblioUB appBiblioUB = new AppBiblioUB();
-            appBiblioUB.setVisible(true);
-        });
+    // constructor
+    public AppBiblioUB() {
+        this.adaptador = new Adaptador();
+        setContentPane(panelAppBiblioUB);
+        setTitle("Biblioteca UB - Menú Principal");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
-
-
-        // obra el formulari per gestionar usuaris
+        // obre el formulari per gestionar usuarios
         btnAnarGestioUsuaris.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,7 +35,7 @@ public class AppBiblioUB extends JFrame {
             }
         });
 
-        // obra el formulari per gestionar exemplars
+        // obre el formulari per gestionar exemplars
         btnAnarGestioExemplars.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,7 +45,7 @@ public class AppBiblioUB extends JFrame {
             }
         });
 
-        // obra el formulari per gestionar prestecs
+        // obre el formulari per gestionar prestecs
         btnAnarGestioPrestecs.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,15 +54,64 @@ public class AppBiblioUB extends JFrame {
                 frmGestioPrestecs.setVisible(true);
             }
         });
+
+        //
+        btnGuardarDades.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // selector de archius
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Selecciona on vols guardar el fitxer de dades");
+
+                int seleccion = fileChooser.showSaveDialog(AppBiblioUB.this);
+                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                    File fitxer = fileChooser.getSelectedFile();
+                    try {
+                        adaptador.guardaDades(fitxer.getAbsolutePath());
+                        JOptionPane.showMessageDialog(AppBiblioUB.this, "Dades guardades correctament.");
+                    } catch (BiblioException ex) {
+                        JOptionPane.showMessageDialog(AppBiblioUB.this, "ERROR en guardar: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+
+        //
+        btnRecuperarDades.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Selecciona el fitxer de dades a carregar");
+                int seleccion = fileChooser.showOpenDialog(AppBiblioUB.this);
+                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                    File fitxer = fileChooser.getSelectedFile();
+                    try {
+                        adaptador.carregaDades(fitxer.getAbsolutePath());
+                        JOptionPane.showMessageDialog(AppBiblioUB.this, "Dades carregades correctament.");
+                    } catch (BiblioException ex) {
+                        JOptionPane.showMessageDialog(AppBiblioUB.this, "ERROR en carregar: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        });
+
+        //
+        btnSortir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
-    public AppBiblioUB(){
-        adaptador = new Adaptador();
-        setTitle("AppBiblioUB GUI");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setContentPane(panelAppBiblioUB);
-        setSize(500,400);
-        setLocationRelativeTo(null);
-
+    /**
+     *
+     */
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            AppBiblioUB appBiblioUB = new AppBiblioUB();
+            appBiblioUB.pack(); // Ajusta la ventana al tamaño de los componentes del .form
+            appBiblioUB.setVisible(true);
+        });
     }
 }

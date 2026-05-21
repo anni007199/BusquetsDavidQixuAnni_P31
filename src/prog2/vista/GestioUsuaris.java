@@ -5,10 +5,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GestioUsuaris extends JFrame{
+
+public class GestioUsuaris extends JDialog {
     private JPanel panelGestioUsuaris;
-    private JScrollPane scrollPane;
-    private JList<String> visualitzarUsuaris;
+    private JList<String> listUsuaris;
     private JButton btnAfegirUsuari;
     private JButton btnSortirGestioUsuaris;
     private Adaptador adaptador;
@@ -18,32 +18,37 @@ public class GestioUsuaris extends JFrame{
         this.adaptador = adaptador;
         setContentPane(panelGestioUsuaris);
         setModal(true);
-        setTitle("Gestió de Usuaris");
+        setTitle("Gestió d'Usuaris - BiblioUB");
+        setLocationRelativeTo(null);
+        actualitzarLlistaUsuaris();
 
-        actualitzarLlista();
 
-        // obra el formulari perf afegir un usuari
         btnAfegirUsuari.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FrmAfegirUsuari frmAfegirUsuari = new FrmAfegirUsuari(adaptador);
-                frmAfegirUsuari.pack();
-                frmAfegirUsuari.setVisible(true);
-                actualitzarLlista(); // actualitzar la llista al sortir
+                FrmAfegirUsuari frmAfegir = new FrmAfegirUsuari(adaptador);
+                frmAfegir.pack();
+                frmAfegir.setVisible(true);
+                actualitzarLlistaUsuaris();
             }
         });
 
-
+        btnSortirGestioUsuaris.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
-    private void actualitzarLlista() {
-        DefaultListModel<String> model = new DefaultListModel<>();
-        java.util.ArrayList<String> usuaris;
 
-        usuaris = adaptador.getLlistaUsuaris();
-        for (String p : usuaris) {
-            model.addElement(p);
+    private void actualitzarLlistaUsuaris() {
+        DefaultListModel<String> modelGrafic = new DefaultListModel<>();
+        java.util.ArrayList<String> llistaUsuarisSistema = adaptador.getLlistaUsuaris();
+        for (String i : llistaUsuarisSistema) {
+            modelGrafic.addElement(i);
         }
-        visualitzarUsuaris.setModel(model);
+
+        listUsuaris.setModel(modelGrafic);
     }
 }

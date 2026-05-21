@@ -1,60 +1,63 @@
 package prog2.vista;
 
+import prog2.adaptador.Adaptador;
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class FrmAfegirExemplar extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
+    private JTextField txtId;
+    private JTextField txtTitol;
+    private JTextField txtAutor;
+    private JCheckBox chkAdmetPrestecLlarg;
+    private JButton btnAcceptar;
+    private JButton btnCancelar;
+    private Adaptador adaptador;
 
-    public FrmAfegirExemplar() {
+
+    public FrmAfegirExemplar(Adaptador adaptador) {
+        this.adaptador = adaptador;
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        setTitle("Afegir Nou Exemplar");
+        setLocationRelativeTo(null);
 
-        buttonOK.addActionListener(new ActionListener() {
+        btnAcceptar.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                String id = txtId.getText().trim();
+                String titol = txtTitol.getText().trim();
+                String autor = txtAutor.getText().trim();
+                boolean admetPrestecLlarg = chkAdmetPrestecLlarg.isSelected();
+
+                if (id.isEmpty() || titol.isEmpty() || autor.isEmpty()) {
+                    JOptionPane.showMessageDialog(FrmAfegirExemplar.this,
+                            "Tots els camps (ID, Títol i Autor) són obligatoris.",
+                            "Camps incomplets", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                try {
+                    adaptador.afegirExemplar(id, titol, autor, admetPrestecLlarg);
+                    JOptionPane.showMessageDialog(FrmAfegirExemplar.this, "Exemplar registrat correctament.");
+                    dispose();
+
+                } catch (BiblioException ex) {
+                    JOptionPane.showMessageDialog(FrmAfegirExemplar.this,
+                            "ERROR: " + ex.getMessage(),
+                            "Error de validació", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
+        // BOTÓN: Cancelar
+        btnCancelar.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                dispose();
             }
         });
-
-        // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
-
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-    }
-
-    private void onOK() {
-        // add your code here
-        dispose();
-    }
-
-    private void onCancel() {
-        // add your code here if necessary
-        dispose();
-    }
-
-    public static void main(String[] args) {
-        FrmAfegirExemplar dialog = new FrmAfegirExemplar();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 }
