@@ -25,7 +25,6 @@ public class AppBiblioUB extends JFrame {
         setContentPane(panelAppBiblioUB);
         setSize(500,400);
         setLocationRelativeTo(null);
-        holaButton.addActionListener(new ActionListener() {
-        });
+
     }
 }
