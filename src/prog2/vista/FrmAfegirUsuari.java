@@ -1,60 +1,47 @@
 package prog2.vista;
 
+import prog2.adaptador.Adaptador;
+
 import javax.swing.*;
 import java.awt.event.*;
 
 public class FrmAfegirUsuari extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
+    private JCheckBox chkEstudiant;
+    private JComboBox cmbEmail;
+    private JComboBox cmbNom;
+    private JComboBox cmbAdreca;
+    private JButton btnConfirmar;
+    private JButton btnCancelar;
 
-    public FrmAfegirUsuari() {
+    public FrmAfegirUsuari(Adaptador adaptador) {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(btnConfirmar);
 
-        buttonOK.addActionListener(new ActionListener() {
+
+        // Botón Cancelar, cierra la ventana sin hacer nada
+        btnCancelar.addActionListener(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                dispose();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        });
 
-        // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
-
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
-        // add your code here
-        dispose();
-    }
+    private void carregarCombos() {
+        cmbEmail.removeAllItems();
+        cmbNom.removeAllItems();
+        cmbAdreca.removeAllItems();
 
-    private void onCancel() {
-        // add your code here if necessary
-        dispose();
-    }
-
-    public static void main(String[] args) {
-        FrmAfegirUsuari dialog = new FrmAfegirUsuari();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
+        // Añadimos las listas en formato String
+        for (String usuari : adaptador.getLlistaUsuaris()) {
+            cmbEm.addItem(usuari);
+        }
+        for (String exemplar : adaptador.getLlistaExemplars()) {
+            cmbExemplars.addItem(exemplar);
+        }
     }
 }

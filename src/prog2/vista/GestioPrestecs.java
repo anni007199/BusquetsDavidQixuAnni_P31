@@ -5,13 +5,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GestioPrestecs extends JDialog { // O JPanel, según cómo tengáis la ventana principal
+public class GestioPrestecs extends JDialog {
     private JPanel panelGestioPrestecs;
     private JButton btnAfegirPrestec;
     private JScrollPane scrollPane;
     private JList<String> visualitzarPrestecs;
     private JButton btnRetornarPrestec;
     private JCheckBox chkOnlyNoRetornats;
+    private JButton btnSortirGestioPrestecs;
     private Adaptador adaptador;
 
     public GestioPrestecs(Adaptador adaptador) {
@@ -22,13 +23,13 @@ public class GestioPrestecs extends JDialog { // O JPanel, según cómo tengáis
 
         actualitzarLlista();
 
-        //obra el formulari perf afegir un prestec
+        // obra el formulari perf afegir un prestec
         btnAfegirPrestec.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FrmAfegirPrestec frmAfegir = new FrmAfegirPrestec(adaptador);
-                frmAfegir.pack();
-                frmAfegir.setVisible(true);
+                FrmAfegirPrestec frmAfegirPrestec = new FrmAfegirPrestec(adaptador);
+                frmAfegirPrestec.pack();
+                frmAfegirPrestec.setVisible(true);
                 actualitzarLlista(); // actualitzar la llista al sortir
             }
         });
