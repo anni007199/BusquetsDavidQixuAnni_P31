@@ -1,60 +1,80 @@
 package prog2.vista;
 
+import prog2.adaptador.Adaptador;
+import prog2.model.Usuari;
+
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class FrmAfegirUsuari extends JDialog {
+    private Adaptador adaptador;
+    private JList<String> llistaUsuaris;
+    private DefaultListModel<String> modelLlista;
+    private JButton afegirButton;
+    private JButton tancarButton;
+
     private JPanel contentPane;
-    private JButton buttonOK;
-    private JButton buttonCancel;
 
-    public FrmAfegirUsuari() {
-        setContentPane(contentPane);
-        setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+    public FrmAfegirUsuari(JFrame finestraPare, Adaptador adaptador) {
+        super(finestraPare,"Gestió Usuaris", true);
+        this.adaptador = adaptador;
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
+        setSize(400,300);
+        setLocationRelativeTo(finestraPare);
+        inici();
+        afegirEvents();
+        actualitzarLlista();
+        }
 
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        });
+    private void inici(){
+        setLayout(new BorderLayout());
+        modelLlista = new DefaultListModel<>();
+        llistaUsuaris = new JList<>(modelLlista);
+        JScrollPane scrollPane = new JScrollPane(llistaUsuaris);
 
-        // call onCancel() when cross is clicked
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                onCancel();
-            }
-        });
+        JPanel panelButons  = new JPanel(new FlowLayout());
+        afegirButton = new JButton("Afegir Usuari");
+        tancarButton = new JButton("Tancar");
+        panelButons.add(afegirButton);
+        panelButons.add(tancarButton);
 
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        JPanel panelNom = new JPanel();
+        JLabel titol = new JLabel("Llista d'usuaris: ");
+        panelNom.add(titol);
+
+        add(panelNom,BorderLayout.NORTH);
+        add(scrollPane,BorderLayout.CENTER);
+        add(panelButons,BorderLayout.SOUTH);
     }
 
-    private void onOK() {
-        // add your code here
-        dispose();
+    // Afegir liseners als buttons
+    private void afegirEvents(){
+        afegirButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                obrirDialogAfegirUsuari();
+            }
+        });
+        tancarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
-    private void onCancel() {
-        // add your code here if necessary
-        dispose();
-    }
-
-    public static void main(String[] args) {
-        FrmAfegirUsuari dialog = new FrmAfegirUsuari();
-        dialog.pack();
+    private void obrirDialogAfegirUsuari(){
+        FrmAfegirUsuari dialog = new FrmAfegirUsuari(this,adaptador);
         dialog.setVisible(true);
-        System.exit(0);
+        actualitzarLlista();
+    }
+    private void actualitzarLlista(){
+        modelLlista.clear();
+        java.util.ArrayList<String> llistaUsuaris = adaptador.getLlistaUsuaris();
+        for (String usuari:llistaUsuaris){
+            modelLlista.addElement(usuari);
+        }
     }
 }
