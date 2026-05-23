@@ -9,6 +9,7 @@
       <background color="-338065"/>
       <font name="Candara" size="17" style="1"/>
       <foreground color="-2104859"/>
+      <minimumSize width="200" height="135"/>
       <opaque value="true"/>
       <preferredSize width="1020" height="320"/>
     </properties>

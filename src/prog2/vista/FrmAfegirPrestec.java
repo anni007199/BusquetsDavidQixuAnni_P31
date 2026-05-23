@@ -12,6 +12,8 @@ public class FrmAfegirPrestec extends JDialog {
     private JCheckBox chkEsLlarg;
     private JButton btnConfirmar;
     private JButton btnCancelar;
+    private JLabel etPosicioExemplar;
+    private JLabel etPosicioUsuari;
 
     private Adaptador adaptador;
 
