@@ -1,41 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="prog2.vista.GestioPrestecs">
-  <grid id="27dc6" binding="panelGestioPrestecs" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="0" left="0" bottom="0" right="0"/>
+  <grid id="27dc6" binding="panelGestioPrestecs" layout-manager="GridLayoutManager" row-count="5" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="15">
+    <margin top="10" left="18" bottom="10" right="18"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="519" height="400"/>
     </constraints>
     <properties>
-      <background color="-327681"/>
+      <background color="-2566167"/>
+      <preferredSize width="1020" height="500"/>
     </properties>
     <border type="none"/>
     <children>
       <component id="e7fcf" class="javax.swing.JButton" binding="btnAfegirPrestec">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="158" height="30"/>
+            <preferred-size width="158" height="30"/>
+          </grid>
         </constraints>
         <properties>
-          <background color="-4340021"/>
-          <foreground color="-16185079"/>
+          <background color="-9145189"/>
+          <font name="Candara" size="17" style="1"/>
+          <foreground color="-1908252"/>
           <hideActionText value="false"/>
           <horizontalAlignment value="0"/>
           <text value="Afegir Prestec"/>
         </properties>
       </component>
-      <component id="2b1ac" class="javax.swing.JButton" binding="btnRetornarPrestec">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-4340021"/>
-          <foreground color="-16185079"/>
-          <hideActionText value="false"/>
-          <text value="Retornar Prestec"/>
-        </properties>
-      </component>
       <scrollpane id="e213e" binding="scrollPane">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+          <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="256" height="207"/>
           </grid>
         </constraints>
@@ -45,28 +39,50 @@
           <component id="2ebca" class="javax.swing.JList" binding="visualitzarPrestecs">
             <constraints/>
             <properties>
-              <background color="-4340021"/>
+              <background color="-1908252"/>
             </properties>
           </component>
         </children>
       </scrollpane>
       <component id="3155f" class="javax.swing.JCheckBox" binding="chkOnlyNoRetornats">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="2"/>
+          </grid>
         </constraints>
         <properties>
-          <background color="-4340021"/>
+          <background color="-659211"/>
+          <font name="Verdana" size="13" style="1"/>
           <foreground color="-16185079"/>
-          <text value="visualtizar només prestecs no retornats"/>
+          <text value="Clica aquí si vols visualtizar només préstecs no retornats"/>
         </properties>
       </component>
       <component id="9e9f1" class="javax.swing.JButton" binding="btnSortir">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="88" height="30"/>
+          </grid>
         </constraints>
         <properties>
-          <background color="-2614758"/>
+          <background color="-1163443"/>
+          <font name="Candara" size="17" style="1"/>
+          <foreground color="-1908252"/>
           <text value="Sortir"/>
+        </properties>
+      </component>
+      <component id="2b1ac" class="javax.swing.JButton" binding="btnRetornarPrestec">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="178" height="30"/>
+            <preferred-size width="178" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-3355171"/>
+          <font name="Candara" size="17" style="1"/>
+          <foreground color="-9145189"/>
+          <hideActionText value="false"/>
+          <text value="Retornar Prestec"/>
         </properties>
       </component>
     </children>
