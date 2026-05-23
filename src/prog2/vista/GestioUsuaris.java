@@ -2,6 +2,7 @@ package prog2.vista;
 
 import prog2.adaptador.Adaptador;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,6 +18,9 @@ public class GestioUsuaris extends JDialog {
     public GestioUsuaris(Adaptador adaptador) {
         this.adaptador = adaptador;
         setContentPane(panelGestioUsuaris);
+        // Controlar el marc dels botons (per quedar més bé l'estàtica)
+        btnAfegirUsuari.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+        btnSortirGestioUsuaris.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
         setModal(true);
         setTitle("Gestió d'Usuaris - BiblioUB");
         setLocationRelativeTo(null);
