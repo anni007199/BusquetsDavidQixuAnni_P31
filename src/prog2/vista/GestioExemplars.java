@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 public class GestioExemplars extends JDialog {
     private JList<String> listExemplars;
     private JButton btnObrirFormulariAfegir;
-    private JButton btnSortir;
-    private JPanel panelGestioExemplars1;
     private Adaptador adaptador;
+    private JPanel panelGestioExemplars;
+    private JButton btnSortir;
 
 
     public GestioExemplars(Adaptador adaptador) {
         this.adaptador = adaptador;
-        setContentPane(panelGestioExemplars1);
+        setContentPane(panelGestioExemplars);
         setModal(true);
         setTitle("Gestió d'Exemplars - BiblioUB");
         setLocationRelativeTo(null);
