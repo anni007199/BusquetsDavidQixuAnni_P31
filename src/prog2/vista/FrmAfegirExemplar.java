@@ -14,6 +14,9 @@ public class FrmAfegirExemplar extends JDialog {
     private JCheckBox chkAdmetPrestecLlarg;
     private JButton btnAcceptar;
     private JButton btnCancelar;
+    private JLabel etID;
+    private JLabel etTitol;
+    private JLabel etAutor;
     private Adaptador adaptador;
 
 
