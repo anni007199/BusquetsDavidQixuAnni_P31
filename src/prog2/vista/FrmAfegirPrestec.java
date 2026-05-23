@@ -22,6 +22,7 @@ public class FrmAfegirPrestec extends JDialog {
         setContentPane(panelAfegirPrestecs);
         setModal(true); // bloquea la ventana de atrás hasta que se cierre
         setTitle("Afegir Nou Préstec");
+        setLocationRelativeTo(null);
 
         carregarCombos(); // Llenar los ComboBox con los datos actuales del sistema usando el adaptador
 

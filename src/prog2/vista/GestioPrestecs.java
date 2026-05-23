@@ -20,6 +20,7 @@ public class GestioPrestecs extends JDialog {
         setContentPane(panelGestioPrestecs);
         setModal(true);
         setTitle("Gestió de Préstecs");
+        setLocationRelativeTo(null);
 
         actualitzarLlista();
 
