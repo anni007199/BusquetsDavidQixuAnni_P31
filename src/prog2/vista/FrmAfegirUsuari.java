@@ -2,6 +2,7 @@ package prog2.vista;
 
 import prog2.adaptador.Adaptador;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,12 +14,23 @@ public class FrmAfegirUsuari extends JDialog {
     private JCheckBox chkEsEstudiant;
     private JButton btnAcceptar;
     private JButton btnCancelar;
+    private JLabel etEmail;
+    private JLabel etNom;
+    private JLabel etAdreca;
     private Adaptador adaptador;
 
 
     public FrmAfegirUsuari(Adaptador adaptador) {
         this.adaptador = adaptador;
         setContentPane(contentPane);
+        // Controlar el marc dels botons (per quedar més bé l'estàtica)
+        btnAcceptar.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+        btnCancelar.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+        // centrar el text dels botons
+        btnAcceptar.setVerticalAlignment(SwingConstants.CENTER);
+        btnAcceptar.setVerticalTextPosition(SwingConstants.CENTER);
+        btnCancelar.setVerticalAlignment(SwingConstants.CENTER);
+        btnCancelar.setVerticalTextPosition(SwingConstants.CENTER);
         setModal(true);
         setTitle("Afegir Nou Usuari");
         setLocationRelativeTo(null);

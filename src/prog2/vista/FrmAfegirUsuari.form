@@ -1,67 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="prog2.vista.FrmAfegirUsuari">
-  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-    <margin top="10" left="10" bottom="10" right="10"/>
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="15">
+    <margin top="10" left="18" bottom="10" right="18"/>
     <constraints>
-      <xy x="48" y="54" width="436" height="300"/>
+      <xy x="48" y="54" width="577" height="300"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-19898"/>
+      <doubleBuffered value="false"/>
+      <preferredSize width="620" height="320"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="7e29b" class="javax.swing.JButton" binding="btnCancelar">
         <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="115" height="30"/>
+            <preferred-size width="115" height="30"/>
+          </grid>
         </constraints>
         <properties>
-          <background color="-2614758"/>
-          <text value="Cancelar"/>
+          <alignmentY value="0.0"/>
+          <background color="-1163443"/>
+          <borderPainted value="true"/>
+          <font name="Candara" size="17" style="1"/>
+          <horizontalTextPosition value="0"/>
+          <margin top="5" left="10" bottom="3" right="10"/>
+          <text value="Cancel·lar"/>
+          <verticalTextPosition value="0"/>
         </properties>
       </component>
       <component id="aed0a" class="javax.swing.JTextField" binding="txtNom">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="2"/>
           </grid>
         </constraints>
         <properties>
+          <background color="-2590"/>
           <text value=""/>
         </properties>
       </component>
       <component id="ee448" class="javax.swing.JTextField" binding="txtAdreca">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="2"/>
           </grid>
         </constraints>
         <properties>
+          <background color="-2590"/>
           <text value=""/>
         </properties>
       </component>
       <component id="2ef61" class="javax.swing.JButton" binding="btnAcceptar">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="115" height="30"/>
+            <preferred-size width="115" height="30"/>
+          </grid>
         </constraints>
         <properties>
-          <background color="-9447375"/>
+          <alignmentY value="0.0"/>
+          <background color="-9914226"/>
+          <borderPainted value="true"/>
+          <contentAreaFilled value="true"/>
+          <font name="Candara" size="17" style="1"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <margin top="5" left="6" bottom="1" right="7"/>
           <text value="Confirmar"/>
+          <verticalAlignment value="1"/>
+          <verticalTextPosition value="1"/>
         </properties>
       </component>
       <component id="81612" class="javax.swing.JCheckBox" binding="chkEsEstudiant">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="2"/>
+          </grid>
         </constraints>
         <properties>
-          <text value="Es Estudiant"/>
+          <background color="-5966"/>
+          <font name="Verdana" size="13" style="1"/>
+          <text value="Si ets estudiant, marca la casella"/>
         </properties>
       </component>
       <component id="92fb8" class="javax.swing.JTextField" binding="txtEmail">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="2"/>
           </grid>
         </constraints>
         <properties>
+          <background color="-2590"/>
+          <font/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="d394d" class="javax.swing.JLabel" binding="etEmail">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <font name="Verdana" size="13" style="2"/>
+          <text value="Introdueix l'email (ex.alumne@ub.edu): "/>
+        </properties>
+      </component>
+      <component id="85caf" class="javax.swing.JLabel" binding="etNom">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Verdana" size="13" style="2"/>
+          <text value="Introdueix el nom:"/>
+        </properties>
+      </component>
+      <component id="f0899" class="javax.swing.JLabel" binding="etAdreca">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Verdana" size="13" style="2"/>
+          <text value="Introdueix l'adreça postal: "/>
         </properties>
       </component>
     </children>
