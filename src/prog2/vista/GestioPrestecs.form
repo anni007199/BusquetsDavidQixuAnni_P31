@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panelGestioPrestecs" layout-manager="GridLayoutManager" row-count="5" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="15">
     <margin top="10" left="18" bottom="10" right="18"/>
     <constraints>
-      <xy x="20" y="20" width="519" height="400"/>
+      <xy x="20" y="20" width="522" height="400"/>
     </constraints>
     <properties>
       <background color="-2566167"/>
@@ -21,7 +21,7 @@
         <properties>
           <background color="-9145189"/>
           <font name="Candara" size="17" style="1"/>
-          <foreground color="-1908252"/>
+          <foreground color="-16185079"/>
           <hideActionText value="false"/>
           <horizontalAlignment value="0"/>
           <text value="Afegir Prestec"/>
@@ -40,6 +40,7 @@
             <constraints/>
             <properties>
               <background color="-1908252"/>
+              <selectionForeground color="-16185079"/>
             </properties>
           </component>
         </children>
@@ -66,7 +67,7 @@
         <properties>
           <background color="-1163443"/>
           <font name="Candara" size="17" style="1"/>
-          <foreground color="-1908252"/>
+          <foreground color="-16185079"/>
           <text value="Sortir"/>
         </properties>
       </component>
@@ -80,7 +81,7 @@
         <properties>
           <background color="-3355171"/>
           <font name="Candara" size="17" style="1"/>
-          <foreground color="-9145189"/>
+          <foreground color="-16185079"/>
           <hideActionText value="false"/>
           <text value="Retornar Prestec"/>
         </properties>

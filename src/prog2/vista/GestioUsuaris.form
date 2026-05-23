@@ -28,6 +28,7 @@
             <constraints/>
             <properties>
               <background color="-2590"/>
+              <selectionForeground color="-16185079"/>
             </properties>
           </component>
         </children>
@@ -42,6 +43,7 @@
         <properties>
           <background color="-19898"/>
           <font name="Candara" size="17" style="1"/>
+          <foreground color="-16185079"/>
           <text value="Afegir Usuari"/>
         </properties>
       </component>
@@ -55,6 +57,7 @@
         <properties>
           <background color="-1163443"/>
           <font name="Candara" size="17" style="1"/>
+          <foreground color="-16185079"/>
           <text value="Sortir"/>
         </properties>
       </component>

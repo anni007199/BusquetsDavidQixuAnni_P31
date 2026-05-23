@@ -21,6 +21,7 @@
         </constraints>
         <properties>
           <background color="-331040"/>
+          <foreground color="-16185079"/>
           <text value=""/>
         </properties>
       </component>
@@ -32,6 +33,7 @@
         </constraints>
         <properties>
           <background color="-331040"/>
+          <foreground color="-16185079"/>
           <text value=""/>
         </properties>
       </component>
@@ -43,6 +45,7 @@
         </constraints>
         <properties>
           <background color="-331040"/>
+          <foreground color="-16185079"/>
           <text value=""/>
         </properties>
       </component>
@@ -55,7 +58,7 @@
         <properties>
           <background color="-15834708"/>
           <font name="Verdana" size="13" style="1"/>
-          <foreground color="-331040"/>
+          <foreground color="-16185079"/>
           <text value="Si admet préstec llarg, marca la casella"/>
         </properties>
       </component>
@@ -69,6 +72,7 @@
         <properties>
           <background color="-9914226"/>
           <font name="Candara" size="17" style="1"/>
+          <foreground color="-16185079"/>
           <text value="Confirmar"/>
         </properties>
       </component>
@@ -82,6 +86,7 @@
         <properties>
           <background color="-1163443"/>
           <font name="Candara" size="17" style="1"/>
+          <foreground color="-16185079"/>
           <text value="Cancelar"/>
         </properties>
       </component>
@@ -91,6 +96,7 @@
         </constraints>
         <properties>
           <font name="Verdana" size="13" style="2"/>
+          <foreground color="-16185079"/>
           <text value="Introdueix el ID:"/>
         </properties>
       </component>
@@ -100,6 +106,7 @@
         </constraints>
         <properties>
           <font name="Verdana" size="13" style="2"/>
+          <foreground color="-16185079"/>
           <text value="Introdueix el títol:"/>
         </properties>
       </component>
@@ -109,6 +116,7 @@
         </constraints>
         <properties>
           <font name="Verdana" size="13" style="2"/>
+          <foreground color="-16185079"/>
           <text value="Introdueix l'autor:"/>
         </properties>
       </component>

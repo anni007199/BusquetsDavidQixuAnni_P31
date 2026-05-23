@@ -21,7 +21,7 @@
         <properties>
           <background color="-9145189"/>
           <font name="Verdana" size="13" style="1"/>
-          <foreground color="-1908252"/>
+          <foreground color="-16185079"/>
           <text value="Si és de préstec llarg, marca la casella"/>
         </properties>
       </component>
@@ -36,6 +36,7 @@
           <alignmentY value="0.0"/>
           <background color="-9914226"/>
           <font name="Candara" size="17" style="1"/>
+          <foreground color="-16185079"/>
           <text value="Confirmar"/>
         </properties>
       </component>
@@ -47,6 +48,7 @@
         </constraints>
         <properties>
           <background color="-1908252"/>
+          <foreground color="-16185079"/>
         </properties>
       </component>
       <component id="8b08d" class="javax.swing.JComboBox" binding="cmbExemplars">
@@ -57,6 +59,7 @@
         </constraints>
         <properties>
           <background color="-1908252"/>
+          <foreground color="-16185079"/>
           <model/>
         </properties>
       </component>
@@ -66,6 +69,7 @@
         </constraints>
         <properties>
           <font name="Verdana" size="13" style="2"/>
+          <foreground color="-16185079"/>
           <text value="Tria la posició de l'exemplar:"/>
         </properties>
       </component>
@@ -75,6 +79,7 @@
         </constraints>
         <properties>
           <font name="Verdana" size="13" style="2"/>
+          <foreground color="-16185079"/>
           <text value="Tria la posició de l'usuari:"/>
         </properties>
       </component>
@@ -86,6 +91,7 @@
           <alignmentY value="0.0"/>
           <background color="-1163443"/>
           <font name="Candara" size="17" style="1"/>
+          <foreground color="-16185079"/>
           <text value="Cancelar"/>
         </properties>
       </component>
