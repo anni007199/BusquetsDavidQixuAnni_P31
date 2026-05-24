@@ -6,6 +6,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Finestres de diàleg per introduir les dades i registrar un nou usuari.
+ * Aquesta classe proporciona un formulari que captura el nom,
+ * correu electrònic, adreça i tipus (Estudiant/Profesor) d'un nou usuari, validant les dades
+ * abans d'enviar-les al model lògic a través de l'adaptador.
+ */
 public class FrmAfegirUsuari extends JDialog {
     private JPanel contentPane;
     private JTextField txtEmail;
@@ -20,6 +26,13 @@ public class FrmAfegirUsuari extends JDialog {
     private Adaptador adaptador;
 
 
+    /**
+     * Constructor de la classe FrmAfegirUsuari.
+     * Assigna l'adaptador lògic central, inicialitza el panell de contingut,
+     * defineix la finestra com a modal per bloquejar la pantalla de fons i
+     * programa els controladors d'esdeveniments per processar l'alta o la cancel·lació.
+     * * @param adaptador Instància del controlador de dades compartit per tota l'aplicació.
+     */
     public FrmAfegirUsuari(Adaptador adaptador) {
         this.adaptador = adaptador;
         setContentPane(contentPane);
@@ -35,6 +48,13 @@ public class FrmAfegirUsuari extends JDialog {
         setTitle("Afegir Nou Usuari");
         setLocation(0, 0);
 
+
+        /**
+         * Controlador d'esdeveniments per al botó d'acceptar.
+         * Extrau els textos dels camps, elimina els espais en blanc marginals,
+         * verifica que cap camp obligatori estigui buit i intenta efectuar l'alta.
+         * Mostra missatges gràfics informatius tant en cas d'èxit com d'error del model.
+         */
         btnAcceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

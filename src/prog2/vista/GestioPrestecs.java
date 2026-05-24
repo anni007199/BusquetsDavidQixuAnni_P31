@@ -5,6 +5,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Finestra de diàleg per a la gestió del flux de préstecs de la biblioteca.
+ * Aquesta classe permet visualitzar l'historial de préstecs actius i tancats,
+ * aplicar filtres dinàmics per veure només aquells que no s'han retornat,
+ * processar devolucions de llibres i enllaçar amb el formulari d'alta.
+ */
 public class GestioPrestecs extends JDialog {
     private JPanel panelGestioPrestecs;
     private JButton btnAfegirPrestec;
@@ -15,6 +21,14 @@ public class GestioPrestecs extends JDialog {
     private JButton btnSortir;
     private Adaptador adaptador;
 
+
+    /**
+     * Constructor de la classe GestioPrestecs.
+     * Assigna el controlador de dades centralitzat, associa el panell de contingut gràfic,
+     * configura la modalitat del diàleg perquè bloquegi la finestra principal de fons,
+     * invoca la sincronització inicial de dades de l'historial i programa els controladors d'esdeveniments.
+     * * @param adaptador Instància del controlador o adaptador de dades compartit per tota l'aplicació.
+     */
     public GestioPrestecs(Adaptador adaptador) {
         this.adaptador = adaptador;
         setContentPane(panelGestioPrestecs);
@@ -24,7 +38,11 @@ public class GestioPrestecs extends JDialog {
         actualitzarLlistaPrestecs();
 
 
-        // obra el formulari perf afegir un prestec
+        /**
+         * Controlador d'esdeveniments per al botó d'obertura del formulari d'alta.
+         * Instancia de manera modal el diàleg FrmAfegirPrestec passant l'adaptador com a paràmetre.
+         * Un cop tancat el formulari, el codi es repren i es refresca automàticament el llistat gràfic.
+         */
         btnAfegirPrestec.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,7 +53,12 @@ public class GestioPrestecs extends JDialog {
             }
         });
 
-        // obra el formulari per obrir un prestec
+        /**
+         * Controlador d'esdeveniments per al botó de retorn de préstecs.
+         * Identifica l'índex seleccionat per l'usuari a la llista gràfica. Si n'hi ha un de triat,
+         * demana l'operació al model a través de l'adaptador i llança avisos visuals tant per
+         * confirmar l'èxit com per advertir en cas d'errors de consistència o manca de selecció.
+         */
         btnRetornarPrestec.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,6 +77,11 @@ public class GestioPrestecs extends JDialog {
             }
         });
 
+        /**
+         * Controlador d'esdeveniments per a la casella de selecció de filtre.
+         * Detecta el canvi d'estat a la casella i reactiva el mètode de refresc,
+         * provocant que la llista es reconstrueixi segons el criteri de filtratge marcat.
+         */
         chkOnlyNoRetornats.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -61,7 +89,10 @@ public class GestioPrestecs extends JDialog {
             }
         });
 
-        // BOTÓN: Tancar
+        /**
+         * Controlador d'esdeveniments per al botó de tancar la finestra.
+         * Allibera els recursos gràfics associats a aquest diàleg secundari i en tanca la visualització.
+         */
         btnSortir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +102,12 @@ public class GestioPrestecs extends JDialog {
 
     }
 
+    /**
+     * Mètode privat i auxiliar encarregat de sincronitzar i reconstruir l'estat del JList.
+     * Evalua l'estat de la casella de filtratge: si està seleccionada, demana a l'adaptador només els
+     * préstecs no retornats; en cas contrari, recupera l'historial global. Transfereix la col·lecció de dades
+     * a un model de Swing pròpi i actualitza el component gràfic per a l'usuari.
+     */
     private void actualitzarLlistaPrestecs() {
         DefaultListModel<String> model = new DefaultListModel<>();
         java.util.ArrayList<String> prestecs;

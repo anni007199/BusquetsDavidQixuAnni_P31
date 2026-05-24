@@ -5,6 +5,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Finestra de diàleg per introduir les dades i registrar un nou préstec.
+ * Aquesta classe proporciona un formulari modal que utilitza llistes desplegables
+ * per seleccionar de manera gràfica quin usuari i quin exemplar s'associaran en
+ * el nou préstec, validant les posicions seleccionades abans de demanar l'alta.
+ */
 public class FrmAfegirPrestec extends JDialog {
     private JPanel panelAfegirPrestecs;
     private JComboBox<String> cmbUsuaris;
@@ -17,6 +23,13 @@ public class FrmAfegirPrestec extends JDialog {
 
     private Adaptador adaptador;
 
+    /**
+     * Constructor de la classe FrmAfegirPrestec.
+     * Rep la instància de l'adaptador central, configura el panell de contingut gràfic,
+     * defineix el diàleg com a modal perquè bloquegi la pantalla de fons, invoca el procés
+     * privat d'omplert de les llistes desplegables i programa els controladors d'esdeveniments.
+     * * @param adaptador Instància del controlador o adaptador de dades compartit per tota l'aplicació.
+     */
     public FrmAfegirPrestec(Adaptador adaptador) {
         this.adaptador = adaptador;
         setContentPane(panelAfegirPrestecs);
@@ -26,6 +39,13 @@ public class FrmAfegirPrestec extends JDialog {
 
         carregarCombos(); // Llenar los ComboBox con los datos actuales del sistema usando el adaptador
 
+        /**
+         * Controlador d'esdeveniments per al botó de confirmar.
+         * Extrau els índexs numèrics seleccionats a les llistes de dalt de la finestra.
+         * Verifica que s'hagi fet una selecció real i
+         * demana l'alta del préstec al model lògic a través de l'adaptador.
+         * Atrapa gràficament qualsevol excepció o denegació.
+         */
         btnConfirmar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,7 +68,10 @@ public class FrmAfegirPrestec extends JDialog {
             }
         });
 
-        // Botón Cancelar, cierra la ventana sin hacer nada
+        /**
+         * Controlador d'esdeveniments per al botó de cancel·lar.
+         * Tanca la finestra
+         */
         btnCancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,6 +80,12 @@ public class FrmAfegirPrestec extends JDialog {
         });
     }
 
+    /**
+     * Mètode privat i auxiliar per poblar les llistes desplegables de la interfície.
+     * Neteja qualsevol element residual existent dins de cmbUsuaris i cmbExemplars, demana
+     * els registres en format de text a l'adaptador i, mitjançant bucles seccionalitzats,
+     * afegeix cada línia de descripció com un ítem seleccionable dins dels ComboBox gràfics.
+     */
     private void carregarCombos() {
         cmbUsuaris.removeAllItems();
         cmbExemplars.removeAllItems();

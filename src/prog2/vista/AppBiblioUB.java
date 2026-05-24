@@ -6,6 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/**
+ * Finestra principal de l'aplicació gràfica BiblioUB.
+ * Aquesta classe actua com a menú principal mitjançant una interfície JFrame.
+ * Permet a l'usuari navegar cap a les diferents seccions de gestió (Usuaris, Exemplars i Préstecs)
+ * i ofereix les opcions de guardar i carregar les dades en/des-de fitxer
+ */
 public class AppBiblioUB extends JFrame {
 
     private JPanel panelAppBiblioUB;
@@ -17,7 +23,12 @@ public class AppBiblioUB extends JFrame {
     private JButton btnSortir;
     private Adaptador adaptador;
 
-    // constructor
+    /**
+     * Constructor per defecte de la classe AppBiblioUB.
+     * S'encarrega d'inicialitzar l'adaptador lògic central, configurar els paràmetres
+     * estructurals de la finestra principal (com el títol, el comportament de tancament i la posició)
+     * i assignar els controladors d'esdeveniments (ActionListeners) a cadascun dels botons del menú.
+     */
     public AppBiblioUB() {
         this.adaptador = new Adaptador();
         setContentPane(panelAppBiblioUB);
@@ -25,7 +36,9 @@ public class AppBiblioUB extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(0, 0);
 
-        // obre el formulari per gestionar usuarios
+        /**
+         * Obra el formulari per gestionar usuaris
+         */
         btnAnarGestioUsuaris.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,7 +48,9 @@ public class AppBiblioUB extends JFrame {
             }
         });
 
-        // obre el formulari per gestionar exemplars
+        /**
+         * Obra el formulari per gestionar exemplars
+         */
         btnAnarGestioExemplars.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,7 +60,9 @@ public class AppBiblioUB extends JFrame {
             }
         });
 
-        // obre el formulari per gestionar prestecs
+        /**
+         * Obra el formulari per gestionar prestecs
+         */
         btnAnarGestioPrestecs.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,7 +72,9 @@ public class AppBiblioUB extends JFrame {
             }
         });
 
-        //
+        /**
+         * Controlador d'esdeveniments per desar les dades en un fitxer serialitzat
+         */
         btnGuardarDades.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,7 +96,9 @@ public class AppBiblioUB extends JFrame {
             }
         });
 
-        //
+        /**
+         * Controlador d'esdeveniments per carregar i restaurar el model de dades des d'un fitxer serialitzat
+         */
         btnRecuperarDades.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,7 +117,10 @@ public class AppBiblioUB extends JFrame {
             }
         });
 
-        //
+        /**
+         * Controlador d'esdeveniments per al botó de sortir.
+         * Tanca la finestra
+         */
         btnSortir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,8 +130,10 @@ public class AppBiblioUB extends JFrame {
     }
 
     /**
-     *
+     * Inicialitza la interfície gràfica d'usuari assegurant l'execució
+     * d'esdeveniments de Swing (Event Dispatch Thread) mitjançant SwingUtilities.
      */
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             AppBiblioUB appBiblioUB = new AppBiblioUB();
