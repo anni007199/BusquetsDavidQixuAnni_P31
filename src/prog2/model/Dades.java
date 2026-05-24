@@ -3,14 +3,14 @@ package prog2.model;
 import prog2.vista.BiblioException;
 import java.util.ArrayList;
 import java.util.Date;
-
+import java.io.Serializable;
 
 /**
  * Classe que implementa la gestió de dades de la biblioteca.
  * Conté les llistes d'exemplars, usuaris i préstecs, i controla la
  * lògica de negoci i les restriccions del sistema.
  */
-public class Dades implements InDades{
+public class Dades implements InDades, Serializable {
     // Atributs
     private LlistaExemplars llistaExemplars;
     private LlistaUsuaris llistaUsuaris;

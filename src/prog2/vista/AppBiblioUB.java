@@ -70,6 +70,7 @@ public class AppBiblioUB extends JFrame {
                         adaptador.guardaDades(fitxer.getAbsolutePath());
                         JOptionPane.showMessageDialog(AppBiblioUB.this, "Dades guardades correctament.");
                     } catch (BiblioException ex) {
+                        ex.printStackTrace();
                         JOptionPane.showMessageDialog(AppBiblioUB.this, "ERROR en guardar: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 }

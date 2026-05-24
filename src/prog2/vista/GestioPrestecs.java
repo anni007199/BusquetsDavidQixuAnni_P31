@@ -21,8 +21,8 @@ public class GestioPrestecs extends JDialog {
         setModal(true);
         setTitle("Gestió de Préstecs");
         setLocation(0, 0);
+        actualitzarLlistaPrestecs();
 
-        actualitzarLlista();
 
         // obra el formulari perf afegir un prestec
         btnAfegirPrestec.addActionListener(new ActionListener() {
@@ -31,7 +31,7 @@ public class GestioPrestecs extends JDialog {
                 FrmAfegirPrestec frmAfegirPrestec = new FrmAfegirPrestec(adaptador);
                 frmAfegirPrestec.pack();
                 frmAfegirPrestec.setVisible(true);
-                actualitzarLlista(); // actualitzar la llista al sortir
+                actualitzarLlistaPrestecs(); // actualitzar la llista al sortir
             }
         });
 
@@ -44,7 +44,7 @@ public class GestioPrestecs extends JDialog {
                     try {
                         adaptador.retornarPrestec(indexSeleccionat);
                         JOptionPane.showMessageDialog(null, "Préstec retornat correctament.");
-                        actualitzarLlista();
+                        actualitzarLlistaPrestecs();
                     } catch (BiblioException ex) {
                         JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                     }
@@ -57,7 +57,7 @@ public class GestioPrestecs extends JDialog {
         chkOnlyNoRetornats.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                actualitzarLlista();
+                actualitzarLlistaPrestecs();
             }
         });
 
@@ -71,7 +71,7 @@ public class GestioPrestecs extends JDialog {
 
     }
 
-    private void actualitzarLlista() {
+    private void actualitzarLlistaPrestecs() {
         DefaultListModel<String> model = new DefaultListModel<>();
         java.util.ArrayList<String> prestecs;
 

@@ -181,7 +181,7 @@ public class Adaptador implements Serializable {
             try {
                 FileInputStream fitxer = new FileInputStream(camiOrigen);
                 ObjectInputStream lector = new ObjectInputStream(fitxer);
-                Dades dades =(Dades) lector.readObject();
+                this.dades = (Dades) lector.readObject();
                 lector.close();
             } catch (IOException | ClassNotFoundException error){
                 throw new BiblioException("ERROR en carregar:"+error.getMessage());
