@@ -23,7 +23,7 @@ public class GestioUsuaris extends JDialog {
         btnSortirGestioUsuaris.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
         setModal(true);
         setTitle("Gestió d'Usuaris - BiblioUB");
-        setLocationRelativeTo(null);
+        setLocation(0, 0);
         actualitzarLlistaUsuaris();
 
 

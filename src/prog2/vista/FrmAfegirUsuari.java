@@ -33,7 +33,7 @@ public class FrmAfegirUsuari extends JDialog {
         btnCancelar.setVerticalTextPosition(SwingConstants.CENTER);
         setModal(true);
         setTitle("Afegir Nou Usuari");
-        setLocationRelativeTo(null);
+        setLocation(0, 0);
 
         btnAcceptar.addActionListener(new ActionListener() {
             @Override

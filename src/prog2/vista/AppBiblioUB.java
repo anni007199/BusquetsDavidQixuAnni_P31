@@ -23,7 +23,7 @@ public class AppBiblioUB extends JFrame {
         setContentPane(panelAppBiblioUB);
         setTitle("Biblioteca UB - Menú Principal");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        setLocation(0, 0);
 
         // obre el formulari per gestionar usuarios
         btnAnarGestioUsuaris.addActionListener(new ActionListener() {

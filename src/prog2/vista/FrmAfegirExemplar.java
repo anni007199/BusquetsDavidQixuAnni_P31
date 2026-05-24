@@ -25,7 +25,7 @@ public class FrmAfegirExemplar extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         setTitle("Afegir Nou Exemplar");
-        setLocationRelativeTo(null);
+        setLocation(0, 0);
 
         btnAcceptar.addActionListener(new ActionListener() {
             @Override

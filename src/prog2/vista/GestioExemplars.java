@@ -19,7 +19,7 @@ public class GestioExemplars extends JDialog {
         setContentPane(panelGestioExemplars);
         setModal(true);
         setTitle("Gestió d'Exemplars - BiblioUB");
-        setLocationRelativeTo(null);
+        setLocation(0, 0);
         actualitzarLlistaExemplars();
 
         btnObrirFormulariAfegir.addActionListener(new ActionListener() {
